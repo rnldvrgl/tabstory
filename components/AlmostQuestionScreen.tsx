@@ -1,0 +1,134 @@
+"use client";
+
+import { ChapterWithText } from "@/lib/constants";
+
+interface AlmostQuestionScreenProps {
+	onContinue: () => void;
+	chapterData: ChapterWithText;
+	pageNumber: number;
+}
+
+export default function AlmostQuestionScreen({
+	onContinue,
+	chapterData,
+	pageNumber,
+}: AlmostQuestionScreenProps) {
+	return (
+		<div className="viewport-container page-background">
+			{/* Floating decorations */}
+			<div className="fixed inset-0 pointer-events-none overflow-hidden">
+				<div className="absolute top-[15%] left-[10%] text-3xl opacity-20 animate-float">
+					💕
+				</div>
+				<div className="absolute top-[25%] right-[15%] text-2xl opacity-25 animate-float animation-delay-200">
+					💖
+				</div>
+				<div className="absolute bottom-[20%] left-[15%] text-3xl opacity-20 animate-float animation-delay-400">
+					✨
+				</div>
+				<div className="absolute bottom-[30%] right-[10%] text-2xl opacity-25 animate-float animation-delay-300">
+					🌸
+				</div>
+			</div>
+
+			{/* Book Page Container */}
+			<div className="w-full max-w-5xl mx-auto z-10">
+				<div className="book-page animate-page-flip">
+					<div className="book-content">
+						{/* Chapter Header */}
+						<div className="text-center mb-8 md:mb-10 opacity-0 animate-fade-in-up animation-delay-300">
+							<p className="chapter-heading text-2xl md:text-3xl text-pink-400 mb-3 text-glow">
+								{chapterData.chapter}
+							</p>
+							<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-200 leading-tight px-4">
+								{chapterData.title}
+							</h2>
+
+							{/* Decorative hearts */}
+							<div className="flex justify-center gap-4 mt-4">
+								<span className="text-3xl emoji-enhanced animate-float">
+									💕
+								</span>
+								<span className="text-4xl emoji-enhanced animate-heartbeat">
+									💖
+								</span>
+								<span className="text-3xl emoji-enhanced animate-float animation-delay-200">
+									💕
+								</span>
+							</div>
+						</div>
+
+						{/* Text Content */}
+						<div className="space-y-6 md:space-y-8 mb-10 md:mb-12">
+							{chapterData.text.map((paragraph, index) => (
+								<div
+									key={index}
+									className="opacity-0 animate-fade-in-up"
+									style={{
+										animationDelay: `${400 + index * 150}ms`,
+									}}
+								>
+									<p className="text-xl md:text-2xl text-pink-100 text-center font-light leading-relaxed text-content px-4 md:px-8 max-w-4xl mx-auto">
+										{paragraph}
+									</p>
+								</div>
+							))}
+						</div>
+
+						{/* Decorative elements */}
+						<div
+							className="flex justify-center gap-4 md:gap-6 mb-10 opacity-0 animate-fade-in-up"
+							style={{
+								animationDelay: `${
+									500 + chapterData.text.length * 150
+								}ms`,
+							}}
+						>
+							<span className="text-4xl md:text-5xl emoji-enhanced animate-float">
+								❤️
+							</span>
+							<span className="text-4xl md:text-5xl emoji-enhanced animate-glow">
+								✨
+							</span>
+							<span className="text-4xl md:text-5xl emoji-enhanced animate-float animation-delay-300">
+								💗
+							</span>
+						</div>
+
+						{/* Continue Button */}
+						<div
+							className="flex justify-center pt-4 opacity-0 animate-fade-in-up"
+							style={{
+								animationDelay: `${
+									600 + chapterData.text.length * 150
+								}ms`,
+							}}
+						>
+							<button
+								onClick={onContinue}
+								className="modern-button bg-gradient-to-r from-pink-600 via-rose-600 to-pink-600 hover:from-pink-500 hover:via-rose-500 hover:to-pink-500 text-white font-bold border-2 border-pink-400/50 hover:border-pink-300"
+							>
+								<span className="relative z-10 flex items-center gap-2">
+									Continue
+									<span className="emoji-enhanced">→</span>
+								</span>
+							</button>
+						</div>
+
+						{/* Page Number */}
+						<div
+							className="text-center mt-10 text-pink-400 italic text-base md:text-lg opacity-0 animate-fade-in-up"
+							style={{
+								animationDelay: `${
+									700 + chapterData.text.length * 150
+								}ms`,
+							}}
+						>
+							~ Page {pageNumber} ~
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	);
+}
