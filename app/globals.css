@@ -284,6 +284,10 @@ body {
 	animation-delay: 800ms;
 }
 
+.duration-1500 {
+	transition-duration: 1500ms;
+}
+
 /* ================================
    BACKGROUND & CONTAINERS
    ================================ */
