@@ -57,213 +57,286 @@ export interface OpeningChapter {
 
 export const COPY = {
 	opening: {
-		title: "Once upon a time, 13 years ago...",
+		title: "13 years ago, sa Grade 7...",
 		subtitle:
-			"...a story began. And Tabs, you've been the best chapter ever written.",
-		bookTitle: "The Chronicles of Us",
-		bookSubtitle: "A 13-Year Epic of Love, Laughter, and Chaos",
-		button: "Begin Our Story",
-		meme: "https://i.imgflip.com/30b1gx.jpg", // "This is fine" dog
+			"May tomboy na nag-confess sa akin through Messenger, tapos biglang nag-block. That was you, Tabs. And that's where our 13-year chaos began.",
+		bookTitle: "Ang Ating Kwento: From Grade 7 to Forever",
+		bookSubtitle:
+			"Teenage love, young parents, at lahat ng kalokohan in between",
+		button: "Simulan na natin",
+		meme: "/gifs/kilig-opening.gif",
 	},
 
 	chapter1: {
 		chapter: "Chapter 1",
-		title: "Where It All Began",
-		prompt: "Tabs, do you remember how it started? 13 years ago, two paths crossed...",
+		title: "Yung Confess-Then-Block Era",
+		prompt: "Remember nung Grade 7 tayo? You confessed through Messenger then immediately blocked me. Di ko makalimutan yun, Tabs.",
 		choices: [
 			{
-				id: "fate",
-				label: "🎯 It was meant to be",
+				id: "nervous",
+				label: "Kinabahan ako nun, di ko alam gagawin",
+				emoji: "😰",
 				response:
-					"Right? Some things just click. From day one, there was something different about us.",
-				meme: "https://i.imgflip.com/2hgfw.jpg", // Surprised Pikachu
+					"I know! Tapos ako naman, nakatingin lang sa message mo na di makapag-reply kasi naka-block na ako. But you know what? That bold move caught my attention. Yung tomboyish girl na may guts to confess.",
+				meme: "/gifs/nervous-kinabahan.gif",
 			},
 			{
-				id: "luck",
-				label: "🍀 Best coincidence ever",
+				id: "bold",
+				label: "Nag-risk ako, baka kasi ma-reject",
+				emoji: "💪",
 				response:
-					"The luckiest accident of my life. What are the odds we'd end up here, 13 years later?",
-				meme: "https://i.imgflip.com/5c7lwq.jpg", // Excited SpongeBob
+					"And I'm glad you took that risk. Kasi kung hindi, baka di tayo naging ganito ngayon. 13 years, one son, and counting. Best risk you ever took.",
+				meme: "/gifs/boom-panes.gif",
 			},
 		],
 	},
 
 	chapter2: {
 		chapter: "Chapter 2",
-		title: "The Laughter Archives",
-		prompt: "After 13 years of chaos, what makes you smile the most?",
+		title: "Yung Campus Crush na Pumili sa Tomboy",
+		prompt: "Naalala mo nung mga galit sa'yo yung ibang girls kasi I chose you? The tomboy who walks like a man pero girly sa heart?",
 		choices: [
 			{
-				id: "inside-jokes",
-				label: "🤪 Our ridiculous inside jokes",
-				emoji: "🤪",
+				id: "tomboy-pride",
+				label: "Yung asian eyes at volleyball moves ko",
+				emoji: "🏐",
 				response:
-					"We've accumulated 13 years worth of jokes that literally no one else would understand. And I wouldn't trade a single one.",
-				meme: "https://i.imgflip.com/1bij.jpg", // Conspiracy guy
+					"THOSE ASIAN EYES! Yung volleyball moves mo! Nakikita kita every day, walking with confidence. Yun yung nakita ko - someone who's unapologetically herself. And damn, I was hooked.",
+				meme: "/gifs/heart-eyes-kilig.gif",
 			},
 			{
-				id: "random-moments",
-				label: "🌙 Those random 2 AM conversations",
-				emoji: "🌙",
+				id: "chosen",
+				label: "Di ko alam bakit ako yung pinili mo",
+				emoji: "💕",
 				response:
-					"Some of the best moments were the ones we didn't plan. Just vibing in existence.",
-				meme: "https://i.imgflip.com/261o3j.jpg", // Honest work meme
+					"Simple lang. You were real. Hindi ka nag-pretend. Yung confidence mo, yung pagiging ikaw lang. That's more attractive than anything else. And look at us now - 13 years later, still choosing each other.",
+				meme: "/gifs/sana-all.gif",
 			},
 			{
-				id: "adventures",
-				label: "🎢 All our weird adventures",
-				emoji: "🎢",
+				id: "haters",
+				label: "Grabe yung mga haters nun",
+				emoji: "😤",
 				response:
-					"Every adventure with you is unforgettable. Sometimes chaotic, always worth it.",
-				meme: "https://i.imgflip.com/1g8my4.jpg", // "This is where the fun begins"
+					"Let them hate. We proved them all wrong. 13 years, one beautiful son, building our life together. They can keep talking, we'll keep thriving.",
+				meme: "/gifs/edi-wow.gif",
 			},
 		],
 	},
 
 	chapter3: {
 		chapter: "Chapter 3",
-		title: "The Comfort Zone",
-		prompt: "What does 'home' feel like to you, Tabs?",
+		title: "Yung Gate-Punching Incident",
+		prompt: "Tangina nung away natin na nag-punch ako ng gate tapos lumabas yung tao at sinuntok ako. Classic Ronald and Tabs fight.",
 		choices: [
 			{
-				id: "peace",
-				label: "🛋️ That cozy blanket feeling",
-				emoji: "🛋️",
+				id: "crazy",
+				label: "Grabe yung fights natin noon",
+				emoji: "🥊",
 				response:
-					"Yes! Pure, unfiltered comfort. That's what you are to me. Like the coziest, warmest place.",
-				meme: "https://i.imgflip.com/26am.jpg", // Wholesome seal
+					"Intense tayo dati, no? But those fights taught us something. We learned how to fight right, how to communicate, how to grow together. From teenagers na puno ng angst to adults who know how to handle shit.",
+				meme: "/gifs/vice-ganda-drama.gif",
 			},
 			{
-				id: "safe",
-				label: "💝 Somewhere I can be myself",
-				emoji: "💝",
+				id: "growth",
+				label: "Pero nag-mature na tayo ngayon",
+				emoji: "🌱",
 				response:
-					"Exactly. No masks, no pretending. Just... us. That kind of safety is rare. That kind of trust is everything.",
-				meme: "https://i.imgflip.com/1otk96.jpg", // Happy crying
+					"Sobrang laki ng pinag-bago natin from Grade 7 to now. Yung mga away na ganyan? Ngayon coffee at usap na lang. Mas mature, mas understanding. But still passionate - just in better ways.",
+				meme: "/gifs/bawi-next-time.gif",
 			},
 			{
-				id: "belonging",
-				label: "🏠 Where I'm supposed to be",
-				emoji: "🏠",
+				id: "worth-it",
+				label: "Worth it naman lahat ng pinagdaanan",
+				emoji: "💯",
 				response:
-					"We just fit. Always have, always will. That's not something you find twice in a lifetime.",
-				meme: "https://i.imgflip.com/2cp1.jpg", // Chef's kiss
+					"Every fight, every struggle - worth it. Kasi it made us stronger. We didn't run away when things got hard. We stayed, we fought, we grew. That's what real love is.",
+				meme: "/gifs/true-love.gif",
 			},
 		],
 	},
 
 	chapter4: {
 		chapter: "Chapter 4",
-		title: "The Evolution",
-		prompt: "How do you think we've changed over 13 years?",
+		title: "2018: Nung Naging Parents Tayo",
+		prompt: "We were 17. Still studying. Tapos nalaman natin na buntis ka. Excited but worried. Remember that feeling?",
 		choices: [
 			{
-				id: "grown",
-				label: "🌱 We grew up together",
-				emoji: "🌱",
+				id: "scared",
+				label: "Takot ako nun, ang bata pa natin",
+				emoji: "😰",
 				response:
-					"We've been through so many versions of ourselves. And somehow, through every change, we stayed constant.",
-				meme: "https://i.imgflip.com/4/2gnnjh.jpg", // Growing meme
+					"Takot din ako. 17 years old pa lang tayo, teenage parents. Pero you know what? We didn't run. We faced it together. And we raised the most amazing kid. Prince Nygel - our little version of us.",
+				meme: "/gifs/grabe-omg.gif",
 			},
 			{
-				id: "deeper",
-				label: "💕 We got closer",
-				emoji: "💕",
+				id: "excited",
+				label: "Pero excited din ako makita sya",
+				emoji: "👶",
 				response:
-					"13 years didn't make us old friends. It made us family. The kind you choose, the kind that matters most.",
-				meme: "https://i.imgflip.com/gk5el.jpg", // Yes chad
+					"Same! Kahit takot, excited tayo pareho. And when he came? Best thing that ever happened to us. Nakikita natin yung sarili natin sa kanya. He's proof that we did something right.",
+				meme: "/gifs/happy-crying.gif",
 			},
 			{
-				id: "stronger",
-				label: "⚡ We became unstoppable",
-				emoji: "⚡",
+				id: "team",
+				label: "Naging team tayo lalo nun",
+				emoji: "💪",
 				response:
-					"We figured out how to navigate life together, and that made us both stronger. Unstoppable duo energy.",
-				meme: "https://i.imgflip.com/30b1gx.jpg", // This is fine (but actually)
+					"Oo! From teenage sweethearts to teenage parents. We leveled up together. Hindi madali, pero ginawa natin. And now look - we're thriving. WFH, stable, planning our future. We fucking made it, Tabs.",
+				meme: "/gifs/success-yes.gif",
 			},
 		],
 	},
 
 	chapter5: {
 		chapter: "Chapter 5",
-		title: "The Unspoken Things",
-		prompt: "Some things don't need words, but I'm going to say them anyway...",
+		title: "Si Prince Nygel - Our Little Chaos",
+		prompt: "He's 7 years old now. Nakikita natin yung sarili natin sa kanya. What's your favorite thing about being his parents?",
 		text: [
-			"13 years is a long time to know someone.",
-			"Long enough to see every version of them.",
-			"Long enough to know what silence means.",
-			"Long enough to realize some feelings don't fade—they grow.",
+			"Prince Nygel Repiso Dela Cruz.",
+			"7 years old. Our son. Our little version of us.",
+			"Yung way nya mag-isip, yung kilos nya, yung ngiti nya.",
+			"Nakikita natin yung sarili natin sa kanya.",
+			"Every day, we're reminded why we fought so hard to build this life.",
+			"For him. For us. For our family.",
 		],
 		choices: [
-			{ id: "ready", label: "I'm listening 💝" },
-			{ id: "continue", label: "Keep going... 🥰" },
+			{ id: "proud", label: "Proud ako sa kanya" },
+			{ id: "love", label: "He's our everything" },
 		],
 	},
 
 	chapter6: {
 		chapter: "Chapter 6",
-		title: "The Realization",
-		prompt: "Here's what I've figured out, Tabs...",
+		title: "Yung WFH Life Natin",
+		prompt: "Now we're both working from home. Different companies, pero sama-sama sa bahay. How's that been?",
 		text: [
-			"You know how the best love stories start as friendships?",
-			"They say you should marry your best friend.",
-			"That's what happened to us.",
-			"Somewhere between year 1 and year 13...",
-			"I fell completely, utterly, hopelessly in love with my best friend.",
+			"We achieved it - working from home together.",
+			"Kahit different companies, same bahay.",
+			"Tulog during working hours? Check.",
+			"Watching Modern Family instead of working? Check.",
+			"Distracting each other? Double check.",
+			"Me staying up late waiting for your 1AM clock out? Every night.",
+			"You're 4PM-1AM, I'm 3PM-12MN or 9PM-6AM.",
+			"Different schedules pero we make it work.",
+			"Kasi that's what we do - we adapt, we adjust, we thrive together.",
 		],
 		choices: [
-			{ id: "tell-me", label: "Tell me more... 💕" },
-			{ id: "knew-it", label: "I had a feeling 😏" },
+			{ id: "perfect", label: "Perfect setup para sa atin" },
+			{ id: "team", label: "Team work talaga tayo" },
+		],
+	},
+
+	chapter7: {
+		chapter: "Chapter 7",
+		title: "Yung Mga Bonding Natin",
+		prompt: "Coffee. Modern Family. Horror movies. K-drama. Anime. Judging other people. These are us.",
+		text: [
+			"Our favorite bonding moments:",
+			"Coffee dates kahit sa bahay lang.",
+			"Binge-watching Modern Family for the nth time.",
+			"Horror movies na nagpapantakot sa atin pero pinapanood pa rin.",
+			"K-drama marathons and anime sessions.",
+			"And let's be real - judging people together. Our favorite pastime.",
+			"These simple moments? This is what makes life worth living.",
+			"Di kailangan ng expensive dates.",
+			"Basta kasama kita, okay na.",
+		],
+		choices: [
+			{ id: "simple", label: "Simple lang pero perfect" },
+			{ id: "favorite", label: "These are my favorite moments" },
+		],
+	},
+
+	chapter8: {
+		chapter: "Chapter 8",
+		title: "Seventeen, Jeonghan, at Wonwoo",
+		prompt: "I know your bias is Jeonghan from Seventeen. And you always say I look like Wonwoo. Crush mo rin ba ako kasi kamukha ko sya?",
+		text: [
+			"Seventeen - your favorite K-pop boy band.",
+			"Jeonghan - your ultimate bias.",
+			"And me? According to you, I look like Wonwoo.",
+			"Di ko alam if yun yung reason bakit ka na-fall sa akin.",
+			"Pero alam mo what's funny?",
+			"After 13 years, hindi na ako insecure sa K-pop idols mo.",
+			"Kasi alam ko naman - sila yung idol mo.",
+			"Pero ako? I'm your reality.",
+			"Your present. Your future. Your forever.",
+		],
+		choices: [
+			{ id: "wonwoo", label: "Oo, kamukha mo talaga si Wonwoo" },
+			{ id: "better", label: "Pero mas pogi ka" },
+		],
+	},
+
+	chapter9: {
+		chapter: "Chapter 9",
+		title: "Yung Mga Pangarap Natin",
+		prompt: "This year, may mga plano tayo. Personal car. Better body builds. Future together. Let's talk about that.",
+		text: [
+			"Our goals for this year and beyond:",
+			"Honda Civic Type R. Toyota Vios. Honda City. Kahit ano sa tatlo, gusto natin.",
+			"Better body builds - working out together sa bahay.",
+			"More coffee dates. More movie nights. More memories with Prince.",
+			"Building our future, one day at a time.",
+			"From teenage love to young parents to now - adults with dreams.",
+			"We've come so far, Tabs.",
+			"And we're just getting started.",
+		],
+		choices: [
+			{ id: "excited", label: "Excited ako sa future natin" },
+			{ id: "together", label: "Basta sama-sama tayo" },
 		],
 	},
 
 	almostQuestion: {
-		chapter: "Chapter 7",
-		title: "The Moment of Truth",
+		chapter: "Chapter 10",
+		title: "Before The Big Question...",
 		text: [
-			"So here we are.",
-			"13 years of friendship.",
-			"Countless memories.",
-			"One heart that's completely yours.",
-			"And one very important question...",
+			"13 years, Tabs.",
+			"From that Messenger confession in Grade 7.",
+			"To becoming teenage parents at 17.",
+			"To raising our son together.",
+			"To working from home, building our dreams.",
+			"Every fight, every struggle, every beautiful moment.",
+			"I wouldn't change a single thing.",
+			"Because all of it led us here.",
+			"To this moment.",
 		],
 		choices: [
-			{ id: "ready", label: "Ask me 💝" },
-			{ id: "waiting", label: "I'm ready 💕" },
+			{ id: "ready", label: "Ano na, tanong mo na" },
+			{ id: "waiting", label: "I'm ready for whatever you'll say" },
 		],
 	},
 
 	question: {
-		chapter: "The Question",
+		chapter: "Ang Tanong",
 		title: "Rosa Mae 'Tabs' F. Repiso,",
 		question: "Will you be my Valentine?",
 		subtitle:
-			"(Not just for today... but for every day. Because 13 years of friendship deserves a forever kind of love.)",
+			"Not just for today. For every coffee date, every Modern Family episode, every late-night wait for your clock out. For all our dreams - the car, the body builds, the future with Prince. For forever. Will you continue this journey with me?",
 		choices: [
-			{ id: "yes", label: "Yes! 💝", emoji: "💝" },
-			{
-				id: "absolutely",
-				label: "Absolutely! 🥰",
-				emoji: "🥰",
-			},
-			{ id: "always", label: "Always and forever 💕", emoji: "💕" },
+			{ id: "yes", label: "Yes, lagi naman", emoji: "💝" },
+			{ id: "absolutely", label: "Oo naman, mahal kita", emoji: "🥰" },
+			{ id: "always", label: "Always and forever", emoji: "💕" },
 		],
 	},
 
 	success: {
 		title: "Chapter ∞",
-		subtitle: "And so begins the best chapter yet...",
-		message: "13 years of friendship. A lifetime of more to come.",
-		footer: "Some stories don't end. They just keep getting better.",
-		celebration: "Happy Valentine's Day, Tabs 💝",
-		finalMeme: "https://i.imgflip.com/5c7lwq.jpg", // Celebration meme
+		subtitle: "At patuloy ang ating kwento...",
+		message:
+			"13 years down. A lifetime to go. With our son. With our dreams. With each other.",
+		footer: "From that Messenger confession to this moment - it's been one hell of a ride. And I'd do it all over again. I love you, Tabs. Let's keep building our forever.",
+		celebration:
+			"Happy Valentine's Day, Tabs. To us - Ronald, Rosa, at si Prince. Our little family. Our big dreams. Our forever. Mahal na mahal kita.",
+		finalMeme: "/gifs/kilig-final.gif",
 	},
 } as const;
 
 export const ANIMALS = {
 	pig: "🐷",
 	capybara: "🦦",
-	toothless: "🌙", // Using crescent moon for Toothless vibe
+	toothless: "🌙",
 	heart: "💕",
 	bigHeart: "❤️",
 	sparkles: "✨",
@@ -279,21 +352,22 @@ export const ANIMALS = {
 	star: "⭐",
 } as const;
 
-// Meme images for fun and personality
 export const MEMES = {
-	celebrating: "https://i.imgflip.com/5c7lwq.jpg", // Excited spongebob
-	shocked: "https://i.imgflip.com/2hgfw.jpg", // Surprised pikachu
-	wholesome: "https://i.imgflip.com/26am.jpg", // Wholesome seal
-	happy: "https://i.imgflip.com/1otk96.jpg", // Happy crying
-	yesYesYes: "https://i.imgflip.com/gk5el.jpg", // Yes chad
-	perfect: "https://i.imgflip.com/2cp1.jpg", // Chef's kiss
-	drakeApprove: "https://i.imgflip.com/4t0m5.jpg", // Drake approving
-	thisIsFine: "https://i.imgflip.com/30b1gx.jpg", // This is fine dog
-	conspiracy: "https://i.imgflip.com/1bij.jpg", // Conspiracy guy
-	honestWork: "https://i.imgflip.com/261o3j.jpg", // Honest work
+	celebrating: "/gifs/kilig-final.gif",
+	shocked: "/gifs/nervous-kinabahan.gif",
+	wholesome: "/gifs/vice-ganda-drama.gif",
+	happy: "/gifs/bawi-next-time.gif",
+	yesYesYes: "/gifs/happy-crying.gif",
+	perfect: "/gifs/true-love.gif",
+	drakeApprove: "/gifs/grabe-omg.gif",
+	thisIsFine: "/gifs/success-yes.gif",
+	conspiracy: "/gifs/heart-eyes-kilig.gif",
+	honestWork: "/gifs/sana-all.gif",
+	ediWow: "/gifs/edi-wow.gif",
+	kilig: "/gifs/kilig-opening.gif",
+	boom: "/gifs/boom-panes.gif",
 } as const;
 
-// Valentine's ASCII art
 export const HEART_ART = `
     ❤️ 💕 ❤️
   💕   💗   💕
