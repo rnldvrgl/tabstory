@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .pig-body { fill: #ffb3d9; }
+      .pig-snout { fill: #ff99cc; }
+      .pig-ear { fill: #ff99cc; }
+      .pig-eye { fill: #333; }
+      .pig-nostril { fill: #ff66b3; }
+    </style>
+  </defs>
+
+  <!-- Left Ear -->
+  <ellipse class="pig-ear" cx="30" cy="25" rx="12" ry="18" transform="rotate(-20 30 25)"/>
+
+  <!-- Right Ear -->
+  <ellipse class="pig-ear" cx="70" cy="25" rx="12" ry="18" transform="rotate(20 70 25)"/>
+
+  <!-- Head/Body -->
+  <circle class="pig-body" cx="50" cy="50" r="35"/>
+
+  <!-- Snout -->
+  <ellipse class="pig-snout" cx="50" cy="60" rx="18" ry="14"/>
+
+  <!-- Nostrils -->
+  <ellipse class="pig-nostril" cx="44" cy="60" rx="3" ry="5"/>
+  <ellipse class="pig-nostril" cx="56" cy="60" rx="3" ry="5"/>
+
+  <!-- Left Eye -->
+  <circle class="pig-eye" cx="38" cy="42" r="4"/>
+  <circle fill="white" cx="39" cy="41" r="1.5"/>
+
+  <!-- Right Eye -->
+  <circle class="pig-eye" cx="62" cy="42" r="4"/>
+  <circle fill="white" cx="63" cy="41" r="1.5"/>
+
+  <!-- Smile -->
+  <path d="M 40 70 Q 50 75 60 70" stroke="#ff66b3" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg>
