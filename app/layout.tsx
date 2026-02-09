@@ -21,9 +21,12 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-	title: "TabStory 📖",
+	title: "TabStory",
 	description:
 		"A Valentine's tale for the ages, crafted with love and a touch of whimsy.",
+	icons: {
+		icon: "/icon.svg",
+	},
 };
 
 export default function RootLayout({

@@ -10,12 +10,14 @@ interface MemoryChoiceScreenProps {
 	onContinue: () => void;
 	chapterData: ChapterWithChoices;
 	pageNumber: number;
+	onChoice?: (choiceId: string) => void;
 }
 
 export default function MemoryChoiceScreen({
 	onContinue,
 	chapterData,
 	pageNumber,
+	onChoice,
 }: MemoryChoiceScreenProps) {
 	const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
 	const [showResponse, setShowResponse] = useState(false);
@@ -23,6 +25,7 @@ export default function MemoryChoiceScreen({
 	const handleChoice = (choiceId: string) => {
 		setSelectedChoice(choiceId);
 		setShowResponse(true);
+		onChoice?.(choiceId);
 	};
 
 	const selectedData = chapterData.choices.find(
@@ -78,7 +81,7 @@ export default function MemoryChoiceScreen({
 							<>
 								{/* Prompt */}
 								<div className="text-spacing opacity-0 animate-fade-in-up animation-delay-400">
-									<p className="text-xl md:text-2xl text-pink-100 text-center font-light leading-relaxed px-4 max-w-3xl mx-auto">
+									<p className="text-xl md:text-2xl text-pink-100 text-center font-light leading-relaxed px-4">
 										{chapterData.prompt}
 									</p>
 								</div>
@@ -135,7 +138,7 @@ export default function MemoryChoiceScreen({
 
 									{/* Response Text */}
 									<div className="text-spacing opacity-0 animate-fade-in-up animation-delay-400">
-										<p className="text-lg md:text-xl text-pink-200 italic font-light leading-relaxed px-6 max-w-2xl mx-auto">
+										<p className="text-lg md:text-xl text-pink-200 italic font-light leading-relaxed px-6 mx-auto">
 											&ldquo;{selectedData?.response}
 											&rdquo;
 										</p>
@@ -158,7 +161,7 @@ export default function MemoryChoiceScreen({
 									)}
 
 									{/* Decorative emojis */}
-									<div className="flex justify-center gap-4 md:gap-6 opacity-0 animate-fade-in-up animation-delay-700">
+									<div className="flex mb-4! justify-center gap-4 md:gap-6 opacity-0 animate-fade-in-up animation-delay-700">
 										<span className="text-3xl md:text-4xl emoji-enhanced animate-float">
 											😍
 										</span>
@@ -175,6 +178,7 @@ export default function MemoryChoiceScreen({
 										<Button
 											onClick={onContinue}
 											variant="modern"
+											size="modern"
 										>
 											Continue
 											<span className="emoji-enhanced">
@@ -185,11 +189,6 @@ export default function MemoryChoiceScreen({
 								</div>
 							</>
 						)}
-
-						{/* Page Number */}
-						<div className="text-center mt-8 text-pink-400 italic text-base md:text-lg opacity-0 animate-fade-in-up animation-delay-800">
-							~ Page {pageNumber} ~
-						</div>
 					</div>
 				</div>
 			</div>

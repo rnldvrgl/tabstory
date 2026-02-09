@@ -17,12 +17,64 @@ type Step =
 	| "chapter4"
 	| "chapter5"
 	| "chapter6"
+	| "chapter7"
+	| "chapter8"
+	| "chapter9"
 	| "almost"
 	| "question"
 	| "success";
 
+// Track user choices throughout the journey
+interface UserChoices {
+	chapter1?: string;
+	chapter2?: string;
+	chapter3?: string;
+	chapter4?: string;
+}
+
+// Different ending types based on choices
+type EndingType = "romantic" | "friendship" | "adventure" | "soulmate";
+
 export default function Home() {
 	const [currentStep, setCurrentStep] = useState<Step>("opening");
+	const [userChoices, setUserChoices] = useState<UserChoices>({});
+
+	// Determine ending type based on user choices
+	const getEndingType = (): EndingType => {
+		const choices = Object.values(userChoices);
+
+		// Count patterns in choices
+		const romanticChoices = ["fate", "deeper", "safe", "grown"].filter(
+			(c) => choices.includes(c),
+		).length;
+
+		const adventureChoices = [
+			"luck",
+			"adventures",
+			"stronger",
+			"peace",
+		].filter((c) => choices.includes(c)).length;
+
+		const deepConnectionChoices = [
+			"inside-jokes",
+			"random-moments",
+			"belonging",
+			"deeper",
+		].filter((c) => choices.includes(c)).length;
+
+		// Determine ending based on dominant theme
+		if (deepConnectionChoices >= 3) return "soulmate";
+		if (romanticChoices >= 2) return "romantic";
+		if (adventureChoices >= 2) return "adventure";
+		return "friendship";
+	};
+
+	const handleChoice = (chapter: keyof UserChoices, choiceId: string) => {
+		setUserChoices((prev) => ({
+			...prev,
+			[chapter]: choiceId,
+		}));
+	};
 
 	const nextStep = () => {
 		const steps: Step[] = [
@@ -33,6 +85,9 @@ export default function Home() {
 			"chapter4",
 			"chapter5",
 			"chapter6",
+			"chapter7",
+			"chapter8",
+			"chapter9",
 			"almost",
 			"question",
 			"success",
@@ -54,6 +109,7 @@ export default function Home() {
 					onContinue={nextStep}
 					chapterData={COPY.chapter1}
 					pageNumber={1}
+					onChoice={(choiceId) => handleChoice("chapter1", choiceId)}
 				/>
 			)}
 			{currentStep === "chapter2" && (
@@ -62,6 +118,7 @@ export default function Home() {
 					onContinue={nextStep}
 					chapterData={COPY.chapter2}
 					pageNumber={2}
+					onChoice={(choiceId) => handleChoice("chapter2", choiceId)}
 				/>
 			)}
 			{currentStep === "chapter3" && (
@@ -70,6 +127,7 @@ export default function Home() {
 					onContinue={nextStep}
 					chapterData={COPY.chapter3}
 					pageNumber={3}
+					onChoice={(choiceId) => handleChoice("chapter3", choiceId)}
 				/>
 			)}
 			{currentStep === "chapter4" && (
@@ -78,6 +136,7 @@ export default function Home() {
 					onContinue={nextStep}
 					chapterData={COPY.chapter4}
 					pageNumber={4}
+					onChoice={(choiceId) => handleChoice("chapter4", choiceId)}
 				/>
 			)}
 			{currentStep === "chapter5" && (
@@ -96,18 +155,48 @@ export default function Home() {
 					pageNumber={6}
 				/>
 			)}
+			{currentStep === "chapter7" && (
+				<AlmostQuestionScreen
+					key="chapter7"
+					onContinue={nextStep}
+					chapterData={COPY.chapter7}
+					pageNumber={7}
+				/>
+			)}
+			{currentStep === "chapter8" && (
+				<AlmostQuestionScreen
+					key="chapter8"
+					onContinue={nextStep}
+					chapterData={COPY.chapter8}
+					pageNumber={8}
+				/>
+			)}
+			{currentStep === "chapter9" && (
+				<AlmostQuestionScreen
+					key="chapter9"
+					onContinue={nextStep}
+					chapterData={COPY.chapter9}
+					pageNumber={9}
+				/>
+			)}
 			{currentStep === "almost" && (
 				<AlmostQuestionScreen
 					key="almost"
 					onContinue={nextStep}
 					chapterData={COPY.almostQuestion}
-					pageNumber={7}
+					pageNumber={10}
 				/>
 			)}
 			{currentStep === "question" && (
 				<QuestionScreen key="question" onAnswer={nextStep} />
 			)}
-			{currentStep === "success" && <SuccessScreen key="success" />}
+			{currentStep === "success" && (
+				<SuccessScreen
+					key="success"
+					endingType={getEndingType()}
+					userChoices={userChoices}
+				/>
+			)}
 		</div>
 	);
 }

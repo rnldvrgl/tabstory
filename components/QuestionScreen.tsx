@@ -33,7 +33,7 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 
 				{/* Larger glow blobs for dramatic effect */}
 				<div
-					className="absolute w-[500px] h-[500px] rounded-full blur-3xl opacity-20 animate-float"
+					className="absolute size-125 rounded-full blur-3xl opacity-20 animate-float"
 					style={{
 						background:
 							"radial-gradient(circle, rgba(236, 72, 153, 0.5) 0%, transparent 70%)",
@@ -42,7 +42,7 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 					}}
 				/>
 				<div
-					className="absolute w-[450px] h-[450px] rounded-full blur-3xl opacity-20 animate-float animation-delay-400"
+					className="absolute size-112.5 rounded-full blur-3xl opacity-20 animate-float animation-delay-400"
 					style={{
 						background:
 							"radial-gradient(circle, rgba(249, 168, 212, 0.6) 0%, transparent 70%)",
@@ -102,28 +102,28 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 						<div className="text-center space-y-6 md:space-y-8 mb-12 md:mb-14 px-4">
 							{/* Main Title */}
 							<div className="opacity-0 animate-fade-in-up animation-delay-600">
-								<h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-100 leading-tight max-w-4xl mx-auto">
+								<h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-100 leading-tight mx-auto">
 									{COPY.question.title}
 								</h1>
 							</div>
 
 							{/* The Actual Question */}
 							<div className="opacity-0 animate-fade-in-up animation-delay-700">
-								<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-pink-300 chapter-heading text-glow leading-tight max-w-4xl mx-auto">
+								<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-pink-300 chapter-heading text-glow leading-tight  mx-auto">
 									{COPY.question.question}
 								</h2>
 							</div>
 
 							{/* Subtitle */}
 							<div className="opacity-0 animate-fade-in-up animation-delay-800">
-								<p className="text-xl md:text-2xl lg:text-3xl text-pink-200 italic mt-6 text-content max-w-3xl mx-auto">
+								<p className="text-xl md:text-2xl lg:text-3xl text-pink-200 italic mt-6 text-content mx-auto">
 									{COPY.question.subtitle}
 								</p>
 							</div>
 						</div>
 
 						{/* Answer Choices */}
-						<div className="flex flex-col gap-5 md:gap-6 max-w-4xl mx-auto mb-10">
+						<div className="flex flex-col gap-5 md:gap-6 mx-auto mb-10">
 							{COPY.question.choices.map((choice, index) => (
 								<div
 									key={choice.id}
@@ -135,7 +135,7 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 									<Button
 										onClick={onAnswer}
 										variant="modern"
-										className="w-full text-xl md:text-2xl lg:text-3xl min-h-[90px] md:min-h-[100px]"
+										className="w-full text-xl md:text-2xl lg:text-3xl min-h-22.5 md:min-h-25"
 									>
 										{choice.label}
 									</Button>

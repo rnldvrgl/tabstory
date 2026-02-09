@@ -20,7 +20,7 @@ export default function PageNavigationButton({
 			disabled={disabled}
 			whileHover={{ scale: 1.05 }}
 			whileTap={{ scale: 0.98 }}
-			className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-pink-500 via-pink-600 to-rose-500 hover:from-pink-400 hover:via-pink-500 hover:to-rose-400 text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:shadow-pink-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden min-w-[200px] justify-center"
+			className="group relative inline-flex items-center gap-3 px-8 py-4 bg-linear-to-r from-pink-500 via-pink-600 to-rose-500 hover:from-pink-400 hover:via-pink-500 hover:to-rose-400 text-white font-semibold rounded-full shadow-lg hover:shadow-xl hover:shadow-pink-500/50 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden min-w-50 justify-center"
 		>
 			{/* Ripple effect background */}
 			<motion.div
@@ -50,7 +50,7 @@ export default function PageNavigationButton({
 
 			{/* Shine effect */}
 			<motion.div
-				className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+				className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent"
 				initial={{ x: "-100%" }}
 				whileHover={{ x: "100%" }}
 				transition={{ duration: 0.6 }}

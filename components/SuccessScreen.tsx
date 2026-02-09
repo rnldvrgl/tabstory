@@ -1,6 +1,62 @@
 "use client";
 
 import { COPY, ANIMALS } from "@/lib/constants";
+import Image from "next/image";
+
+// Different ending types based on user journey
+type EndingType = "romantic" | "friendship" | "adventure" | "soulmate";
+
+interface UserChoices {
+	chapter1?: string;
+	chapter2?: string;
+	chapter3?: string;
+	chapter4?: string;
+}
+
+interface SuccessScreenProps {
+	endingType?: EndingType;
+	userChoices?: UserChoices;
+}
+
+// Ending messages for each path
+const ENDINGS = {
+	romantic: {
+		title: "Chapter ∞: From Grade 7 to Forever",
+		subtitle: "13 years of love, chaos, and building our family...",
+		message:
+			"From that Messenger confession in Grade 7 to becoming teenage parents at 17. From fights and struggles to WFH life and future plans. We built this together, Tabs. Our love, our son Prince, our dreams. Honda Civic, better bodies, more coffee dates - lahat yan, kasama mo.",
+		footer: "You were the tomboy who confessed and blocked me. I was the campus crush who chose you despite the hate. 13 years later? Best decision of my life. You, me, and Prince - our forever.",
+		celebration:
+			"Happy Valentine's Day, Tabs. To us - Ronald, Rosa, and Prince. Mahal na mahal kita!",
+	},
+	friendship: {
+		title: "Chapter ∞: Team Ronald & Tabs",
+		subtitle: "Partners in life, parents to Prince, team sa lahat...",
+		message:
+			"We're not just lovers, we're a team. From surviving teenage pregnancy to raising Prince to working from home together. Every challenge, we faced it side by side. Different companies, same bahay. Different schedules, same goals. That's us - always finding a way.",
+		footer: "Coffee, Modern Family, judging people together - these simple moments with you are everything. Waiting for your 1AM clock out? I'd do it every night. Kasi ikaw eh. Kasi tayo.",
+		celebration:
+			"Happy Valentine's Day, my partner, my teammate, my forever!",
+	},
+	adventure: {
+		title: "Chapter ∞: Yung Adventure Continues",
+		subtitle: "From teenage chaos to adult dreams...",
+		message:
+			"Every fight taught us something. Every struggle made us stronger. From that gate-punching incident to now planning our car purchase. From scared 17-year-olds to confident parents. We're still adventuring, Tabs. Still growing. Still chasing dreams - together.",
+		footer: "Honda Civic Type R. Body builds. More memories with Prince. The adventure never ends when you're with the right person. And you're my person, Tabs. Always have been.",
+		celebration:
+			"Happy Valentine's Day! Let's keep building our adventure!",
+	},
+	soulmate: {
+		title: "Chapter ∞: Meant to Be",
+		subtitle: "The tomboy and the campus crush - a love story...",
+		message:
+			"They said we wouldn't last. Teenage love doesn't survive, daw. But here we are - 13 years, one son, one life built together. You walking like a man with your asian eyes and volleyball moves. Me watching you every day and choosing you every single time. This isn't luck. This is destiny.",
+		footer: "Prince Nygel is proof that our love is real. Our WFH setup is proof that we work together. Our plans for the future are proof that we're just getting started. I see myself in you. I see our future in your eyes. Ikaw na talaga, Tabs.",
+		celebration:
+			"Happy Valentine's Day, my soulmate. From Grade 7 to forever. Mahal kita, Wonwoo mo.",
+	},
+};
 
 // Floating emojis configuration
 const FLOATING_EMOJIS = [
@@ -21,7 +77,10 @@ const FLOATING_EMOJIS = [
 	{ id: 14, emoji: "💝", left: "35%", delay: "500ms", duration: "4.2s" },
 ];
 
-export default function SuccessScreen() {
+export default function SuccessScreen({
+	endingType = "romantic",
+}: SuccessScreenProps) {
+	const ending = ENDINGS[endingType];
 	return (
 		<div className="viewport-container page-background">
 			{/* Floating Celebration Emojis */}
@@ -47,7 +106,7 @@ export default function SuccessScreen() {
 
 				{/* Large glow blobs for celebration */}
 				<div
-					className="absolute w-[600px] h-[600px] rounded-full blur-3xl opacity-20 animate-float"
+					className="absolute w-150 h-150 rounded-full blur-3xl opacity-20 animate-float"
 					style={{
 						background:
 							"radial-gradient(circle, rgba(236, 72, 153, 0.6) 0%, transparent 70%)",
@@ -56,7 +115,7 @@ export default function SuccessScreen() {
 					}}
 				/>
 				<div
-					className="absolute w-[500px] h-[500px] rounded-full blur-3xl opacity-20 animate-float animation-delay-400"
+					className="absolute size-125 rounded-full blur-3xl opacity-20 animate-float animation-delay-400"
 					style={{
 						background:
 							"radial-gradient(circle, rgba(249, 168, 212, 0.7) 0%, transparent 70%)",
@@ -73,7 +132,7 @@ export default function SuccessScreen() {
 						{/* Chapter Title */}
 						<div className="text-center mb-8 md:mb-10 opacity-0 animate-fade-in-up animation-delay-500">
 							<p className="chapter-heading text-4xl md:text-5xl lg:text-6xl text-pink-400 text-glow">
-								{COPY.success.title}
+								{ending.title}
 							</p>
 						</div>
 
@@ -95,21 +154,21 @@ export default function SuccessScreen() {
 							{/* Main Success Title */}
 							<div className="opacity-0 animate-fade-in-up animation-delay-700">
 								<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-100 leading-tight max-w-4xl mx-auto">
-									{COPY.success.subtitle}
+									{ending.subtitle}
 								</h2>
 							</div>
 
 							{/* Success Message */}
 							<div className="opacity-0 animate-fade-in-up animation-delay-800">
 								<p className="text-xl md:text-2xl lg:text-3xl text-pink-200 italic font-light text-content max-w-3xl mx-auto">
-									{COPY.success.message}
+									{ending.message}
 								</p>
 							</div>
 
 							{/* Footer Message */}
 							<div className="opacity-0 animate-fade-in-up animation-delay-800">
 								<p className="text-lg md:text-xl text-pink-300 text-content max-w-3xl mx-auto">
-									{COPY.success.footer}
+									{ending.footer}
 								</p>
 							</div>
 						</div>
@@ -118,7 +177,9 @@ export default function SuccessScreen() {
 						{COPY.success.finalMeme && (
 							<div className="opacity-0 animate-fade-in-up animation-delay-800">
 								<div className="meme-container max-w-md mx-auto">
-									<img
+									<Image
+										height={400}
+										width={400}
 										src={COPY.success.finalMeme}
 										alt="Celebration!"
 										className="w-full h-auto rounded-xl"
@@ -137,7 +198,7 @@ export default function SuccessScreen() {
 						{/* Final Celebration Message */}
 						<div className="text-center mb-10 opacity-0 animate-fade-in-up animation-delay-800">
 							<p className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-300 chapter-heading text-glow animate-heartbeat">
-								{COPY.success.celebration}
+								{ending.celebration}
 							</p>
 						</div>
 
@@ -170,26 +231,6 @@ export default function SuccessScreen() {
 					</div>
 				</div>
 			</div>
-
-			{/* CSS for floating up animation */}
-			<style jsx>{`
-				@keyframes floatUp {
-					0% {
-						transform: translateY(0) rotate(0deg);
-						opacity: 0;
-					}
-					10% {
-						opacity: 1;
-					}
-					90% {
-						opacity: 1;
-					}
-					100% {
-						transform: translateY(-220vh) rotate(360deg);
-						opacity: 0;
-					}
-				}
-			`}</style>
 		</div>
 	);
 }

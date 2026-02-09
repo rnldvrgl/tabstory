@@ -10,12 +10,14 @@ interface ReflectionChoiceScreenProps {
 	onContinue: () => void;
 	chapterData: ChapterWithChoices;
 	pageNumber: number;
+	onChoice?: (choiceId: string) => void;
 }
 
 export default function ReflectionChoiceScreen({
 	onContinue,
 	chapterData,
 	pageNumber,
+	onChoice,
 }: ReflectionChoiceScreenProps) {
 	const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
 	const [showResponse, setShowResponse] = useState(false);
@@ -23,6 +25,7 @@ export default function ReflectionChoiceScreen({
 	const handleChoice = (choiceId: string) => {
 		setSelectedChoice(choiceId);
 		setShowResponse(true);
+		onChoice?.(choiceId);
 	};
 
 	const selectedData = chapterData.choices.find(
@@ -78,7 +81,7 @@ export default function ReflectionChoiceScreen({
 							<>
 								{/* Prompt */}
 								<div className="text-spacing opacity-0 animate-fade-in-up animation-delay-400">
-									<p className="text-xl md:text-2xl text-pink-100 text-center font-light leading-relaxed px-4 max-w-3xl mx-auto">
+									<p className="text-xl md:text-2xl text-pink-100 text-center font-light leading-relaxed px-4  mx-auto">
 										{chapterData.prompt}
 									</p>
 								</div>
@@ -138,7 +141,7 @@ export default function ReflectionChoiceScreen({
 
 									{/* Response Text */}
 									<div className="text-spacing opacity-0 animate-fade-in-up animation-delay-400">
-										<p className="text-lg md:text-xl text-pink-200 italic font-light leading-relaxed px-6 max-w-2xl mx-auto">
+										<p className="text-lg md:text-xl text-pink-200 italic font-light leading-relaxed px-6  mx-auto">
 											&ldquo;{selectedData?.response}
 											&rdquo;
 										</p>
@@ -178,6 +181,7 @@ export default function ReflectionChoiceScreen({
 										<Button
 											onClick={onContinue}
 											variant="modern"
+											size="modern"
 										>
 											Continue
 											<span className="emoji-enhanced">
@@ -188,11 +192,6 @@ export default function ReflectionChoiceScreen({
 								</div>
 							</>
 						)}
-
-						{/* Page Number */}
-						<div className="text-center mt-8 text-pink-400 italic text-base md:text-lg opacity-0 animate-fade-in-up animation-delay-800">
-							~ Page {pageNumber} ~
-						</div>
 					</div>
 				</div>
 			</div>

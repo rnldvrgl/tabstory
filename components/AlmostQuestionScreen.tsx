@@ -69,7 +69,7 @@ export default function AlmostQuestionScreen({
 										animationDelay: `${400 + index * 150}ms`,
 									}}
 								>
-									<p className="text-xl md:text-2xl text-pink-100 text-center font-light leading-relaxed text-content px-4 md:px-8 max-w-4xl mx-auto">
+									<p className="text-xl md:text-2xl text-pink-100 text-center font-light leading-relaxed text-content px-4 md:px-8 mx-auto">
 										{paragraph}
 									</p>
 								</div>
@@ -109,18 +109,6 @@ export default function AlmostQuestionScreen({
 								Continue
 								<span className="emoji-enhanced">→</span>
 							</Button>
-						</div>
-
-						{/* Page Number */}
-						<div
-							className="text-center mt-10 text-pink-400 italic text-base md:text-lg opacity-0 animate-fade-in-up"
-							style={{
-								animationDelay: `${
-									700 + chapterData.text.length * 150
-								}ms`,
-							}}
-						>
-							~ Page {pageNumber} ~
 						</div>
 					</div>
 				</div>
