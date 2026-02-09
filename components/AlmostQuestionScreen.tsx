@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { ChapterWithText } from "@/lib/constants";
 
 interface AlmostQuestionScreenProps {
@@ -104,15 +105,10 @@ export default function AlmostQuestionScreen({
 								}ms`,
 							}}
 						>
-							<button
-								onClick={onContinue}
-								className="modern-button bg-gradient-to-r from-pink-600 via-rose-600 to-pink-600 hover:from-pink-500 hover:via-rose-500 hover:to-pink-500 text-white font-bold border-2 border-pink-400/50 hover:border-pink-300"
-							>
-								<span className="relative z-10 flex items-center gap-2">
-									Continue
-									<span className="emoji-enhanced">→</span>
-								</span>
-							</button>
+							<Button onClick={onContinue} variant="modern">
+								Continue
+								<span className="emoji-enhanced">→</span>
+							</Button>
 						</div>
 
 						{/* Page Number */}

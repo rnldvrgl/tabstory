@@ -224,13 +224,12 @@ export default function OpeningScreen({ onContinue }: OpeningScreenProps) {
 									<div className="mt-6 md:mt-8 opacity-0 animate-fade-in-up animation-delay-800">
 										<Button
 											onClick={onContinue}
-											className="modern-button bg-linear-to-r from-pink-600 via-rose-600 to-pink-600 hover:from-pink-500 hover:via-rose-500 hover:to-pink-500 text-white font-bold border-2 border-pink-400/50 hover:border-pink-300 shadow-xl hover:shadow-2xl transition-all duration-300"
+											variant="modern"
+											size="modern"
 										>
-											<span className="relative z-10 flex items-center gap-2 text-lg md:text-xl">
-												{COPY.opening.button}
-												<span className="emoji-enhanced">
-													{ANIMALS.book}
-												</span>
+											{COPY.opening.button}
+											<span className="emoji-enhanced">
+												{ANIMALS.book}
 											</span>
 										</Button>
 									</div>

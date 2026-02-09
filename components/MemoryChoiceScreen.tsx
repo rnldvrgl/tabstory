@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ChapterWithChoices } from "@/lib/constants";
 
@@ -171,17 +172,15 @@ export default function MemoryChoiceScreen({
 
 									{/* Continue Button */}
 									<div className="pt-6 opacity-0 animate-fade-in-up animation-delay-800">
-										<button
+										<Button
 											onClick={onContinue}
-											className="modern-button bg-gradient-to-r from-pink-600 via-rose-600 to-pink-600 hover:from-pink-500 hover:via-rose-500 hover:to-pink-500 text-white font-bold border-2 border-pink-400/50 hover:border-pink-300"
+											variant="modern"
 										>
-											<span className="relative z-10 flex items-center gap-2">
-												Continue
-												<span className="emoji-enhanced">
-													→
-												</span>
+											Continue
+											<span className="emoji-enhanced">
+												→
 											</span>
-										</button>
+										</Button>
 									</div>
 								</div>
 							</>

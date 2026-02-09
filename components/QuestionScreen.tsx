@@ -134,11 +134,10 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 								>
 									<Button
 										onClick={onAnswer}
-										className="w-full modern-button text-xl md:text-2xl lg:text-3xl bg-gradient-to-r from-pink-600 via-rose-600 to-pink-600 hover:from-pink-500 hover:via-rose-500 hover:to-pink-500 text-white font-bold border-2 border-pink-400/50 hover:border-pink-300 shadow-xl hover:shadow-2xl min-h-[90px] md:min-h-[100px] transition-all duration-300"
+										variant="modern"
+										className="w-full text-xl md:text-2xl lg:text-3xl min-h-[90px] md:min-h-[100px]"
 									>
-										<span className="relative z-10 flex items-center justify-center gap-3">
-											{choice.label}
-										</span>
+										{choice.label}
 									</Button>
 								</div>
 							))}

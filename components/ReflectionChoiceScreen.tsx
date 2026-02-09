@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ChapterWithChoices } from "@/lib/constants";
 
@@ -97,7 +98,7 @@ export default function ReflectionChoiceScreen({
 													onClick={() =>
 														handleChoice(choice.id)
 													}
-													className="p-6 md:p-8 cursor-pointer bg-gradient-to-br from-pink-950/50 to-purple-950/50 hover:from-pink-900/60 hover:to-purple-900/60 border-2 border-pink-500/50 hover:border-pink-400 smooth-transition hover:scale-105 hover:-translate-y-2 active:scale-95 shadow-md hover:shadow-xl min-h-[200px] md:min-h-[220px] flex flex-col items-center justify-center gap-4 rounded-xl"
+													className="p-6 md:p-8 cursor-pointer bg-linear-to-br from-pink-950/50 to-purple-950/50 hover:from-pink-900/60 hover:to-purple-900/60 border-2 border-pink-500/50 hover:border-pink-400 smooth-transition hover:scale-105 hover:-translate-y-2 active:scale-95 shadow-md hover:shadow-xl min-h-[200px] md:min-h-[220px] flex flex-col items-center justify-center gap-4 rounded-xl"
 												>
 													<div className="text-5xl md:text-6xl emoji-enhanced animate-float">
 														{choice.emoji}
@@ -174,17 +175,15 @@ export default function ReflectionChoiceScreen({
 
 									{/* Continue Button */}
 									<div className="pt-6 opacity-0 animate-fade-in-up animation-delay-800">
-										<button
+										<Button
 											onClick={onContinue}
-											className="modern-button bg-gradient-to-r from-pink-600 via-rose-600 to-pink-600 hover:from-pink-500 hover:via-rose-500 hover:to-pink-500 text-white font-bold border-2 border-pink-400/50 hover:border-pink-300"
+											variant="modern"
 										>
-											<span className="relative z-10 flex items-center gap-2">
-												Continue
-												<span className="emoji-enhanced">
-													→
-												</span>
+											Continue
+											<span className="emoji-enhanced">
+												→
 											</span>
-										</button>
+										</Button>
 									</div>
 								</div>
 							</>
