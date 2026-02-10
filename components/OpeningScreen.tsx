@@ -62,7 +62,7 @@ export default function OpeningScreen({ onContinue }: OpeningScreenProps) {
 			setTimeout(() => {
 				setPigIntro(false);
 				playSound("pageFlip");
-			}, 2800);
+			}, 3500);
 
 			setTimeout(() => {
 				setBookOpened(true);
