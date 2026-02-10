@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Crimson_Pro, Dancing_Script, Quicksand } from "next/font/google";
 import "./globals.css";
+import SoundEnabler from "@/components/SoundEnabler";
 
 const crimsonPro = Crimson_Pro({
 	subsets: ["latin"],
@@ -43,6 +44,7 @@ export default function RootLayout({
 						"var(--font-quicksand), var(--font-crimson), ui-sans-serif, system-ui, sans-serif",
 				}}
 			>
+				<SoundEnabler />
 				{children}
 			</body>
 		</html>

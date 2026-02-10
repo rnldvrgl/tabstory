@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { COPY, ANIMALS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
+import { useSound } from "@/lib/hooks/useSound";
 
 interface OpeningScreenProps {
 	onContinue: () => void;
@@ -12,79 +13,141 @@ interface OpeningScreenProps {
 export default function OpeningScreen({ onContinue }: OpeningScreenProps) {
 	const [pigIntro, setPigIntro] = useState(true);
 	const [pigStage, setPigStage] = useState<
-		"initial" | "entering" | "staying" | "leaving"
+		"initial" | "entering" | "waiting" | "staying" | "dipping" | "leaving"
 	>("initial");
 	const [bookOpened, setBookOpened] = useState(false);
+	const [animationStarted, setAnimationStarted] = useState(false);
+	const { playSound, playBackgroundMusic } = useSound();
 
-	useEffect(() => {
-		const initialTimer = setTimeout(() => {
+	// Pig enters from bottom and stops at center
+	useState(() => {
+		const enterTimer = setTimeout(() => {
 			setPigStage("entering");
 		}, 50);
 
-		const enterTimer = setTimeout(() => {
-			setPigStage("staying");
-		}, 1550);
-
-		const stayTimer = setTimeout(() => {
-			setPigStage("leaving");
-		}, 4550);
-
-		const leaveTimer = setTimeout(() => {
-			setPigIntro(false);
-			setBookOpened(true);
-		}, 8050);
+		const waitTimer = setTimeout(() => {
+			setPigStage("waiting");
+		}, 2550);
 
 		return () => {
-			clearTimeout(initialTimer);
 			clearTimeout(enterTimer);
-			clearTimeout(stayTimer);
-			clearTimeout(leaveTimer);
+			clearTimeout(waitTimer);
 		};
-	}, []);
+	});
+
+	const handlePigClick = () => {
+		if (!animationStarted) {
+			setAnimationStarted(true);
+
+			// Enable sounds
+			playBackgroundMusic();
+
+			// Small delay to ensure userInteracted is set by click listener
+			setTimeout(() => {
+				playSound("pigEntry");
+			}, 50);
+
+			// Start animation sequence
+			setPigStage("staying");
+
+			setTimeout(() => {
+				setPigStage("dipping");
+			}, 1500);
+
+			setTimeout(() => {
+				setPigStage("leaving");
+			}, 1800);
+
+			setTimeout(() => {
+				setPigIntro(false);
+				playSound("pageFlip");
+			}, 2800);
+
+			setTimeout(() => {
+				setBookOpened(true);
+			}, 3800);
+		}
+	};
 
 	return (
 		<div className="viewport-container page-background">
 			{/* Pig Meme Intro Animation */}
 			{pigIntro && (
-				<div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none overflow-hidden">
-					<div
-						className={cn(
-							"transition-all",
-							pigStage === "initial" &&
-								"translate-y-[200vh] scale-[0.2] opacity-0",
-							pigStage === "entering" &&
-								"translate-y-0 scale-100 opacity-100",
-							pigStage === "staying" &&
-								"translate-y-0 scale-100 opacity-100",
-							pigStage === "leaving" &&
-								"opacity-0 scale-[1.8] -translate-y-[200vh]",
+				<div className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden">
+					<div className="relative">
+						{/* Thought Bubble */}
+						{pigStage === "waiting" && (
+							<div className="absolute -top-24 left-1/2 -translate-x-1/2 animate-bounce pointer-events-none">
+								<div className="relative bg-white text-gray-800 px-6 py-3 rounded-2xl shadow-2xl border-2 border-pink-400">
+									<span className="text-lg md:text-xl font-bold">
+										Click me! 🔊
+									</span>
+									{/* Bubble tail */}
+									<div className="absolute -bottom-3 left-1/2 -translate-x-1/2">
+										<div className="w-0 h-0 border-l-12 border-l-transparent border-r-12 border-r-transparent border-t-12 border-t-white"></div>
+										<div className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-0 h-0 border-l-3.5 border-l-transparent border-r-3.5 border-r-transparent border-t-3.5 border-t-pink-400"></div>
+									</div>
+								</div>
+							</div>
 						)}
-						style={{
-							transitionDuration:
-								pigStage === "initial"
-									? "0ms"
-									: pigStage === "entering"
-										? "1500ms"
-										: pigStage === "staying"
-											? "0ms"
-											: pigStage === "leaving"
-												? "3500ms"
-												: "0ms",
-							transitionTimingFunction:
-								pigStage === "entering"
-									? "cubic-bezier(0.34, 1.56, 0.64, 1)"
-									: pigStage === "leaving"
-										? "cubic-bezier(0.4, 0, 0.6, 1)"
-										: "ease-out",
-						}}
-					>
+
+						{/* Pig */}
 						<div
 							className={cn(
-								"text-[120px] md:text-[180px] lg:text-[240px]",
-								pigStage === "staying" && "animate-heartbeat",
+								"transition-all",
+								pigStage === "initial" &&
+									"translate-y-[200vh] scale-[0.2] opacity-0",
+								pigStage === "entering" &&
+									"translate-y-0 scale-100 opacity-100",
+								pigStage === "waiting" &&
+									"translate-y-0 scale-100 opacity-100 hover:scale-110 cursor-pointer",
+								pigStage === "staying" &&
+									"translate-y-0 scale-100 opacity-100",
+								pigStage === "dipping" &&
+									"translate-y-[10vh] scale-[0.95] opacity-100",
+								pigStage === "leaving" &&
+									"opacity-0 scale-[2] -translate-y-[250vh]",
 							)}
+							style={{
+								transitionDuration:
+									pigStage === "initial"
+										? "0ms"
+										: pigStage === "entering"
+											? "2500ms"
+											: pigStage === "waiting"
+												? "300ms"
+												: pigStage === "staying"
+													? "0ms"
+													: pigStage === "dipping"
+														? "200ms"
+														: pigStage === "leaving"
+															? "800ms"
+															: "0ms",
+								transitionTimingFunction:
+									pigStage === "entering"
+										? "cubic-bezier(0.34, 1.56, 0.64, 1)"
+										: pigStage === "dipping"
+											? "ease-in"
+											: pigStage === "leaving"
+												? "cubic-bezier(0.6, 0.04, 0.98, 0.34)"
+												: "ease-out",
+							}}
+							onClick={
+								pigStage === "waiting"
+									? handlePigClick
+									: undefined
+							}
 						>
-							🐷
+							<div
+								className={cn(
+									"text-[120px] md:text-[180px] lg:text-[240px]",
+									pigStage === "staying" &&
+										"animate-heartbeat",
+									pigStage === "waiting" && "animate-pulse",
+								)}
+							>
+								🐷
+							</div>
 						</div>
 					</div>
 				</div>
@@ -175,53 +238,53 @@ export default function OpeningScreen({ onContinue }: OpeningScreenProps) {
 								{/* Main Content */}
 								<div className="text-center element-gap flex flex-col items-center justify-center min-h-125 md:min-h-150">
 									{/* Book Title */}
-									<div className="space-y-4 md:space-y-6 opacity-0 animate-fade-in-up animation-delay-400">
-										<h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-pink-200 chapter-heading text-glow leading-tight px-4">
+									<div className="space-y-3 md:space-y-4 opacity-0 animate-fade-in-up animation-delay-400">
+										<h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-200 chapter-heading text-glow leading-tight px-4">
 											{COPY.opening.bookTitle}
 										</h1>
-										<p className="text-base md:text-lg lg:text-xl text-pink-300 italic font-light px-6 max-w-2xl mx-auto">
+										<p className="text-sm md:text-base lg:text-lg text-pink-300 italic font-light px-6 mx-auto">
 											{COPY.opening.bookSubtitle}
 										</p>
 									</div>
 
 									{/* Heart Parade */}
-									<div className="flex justify-center items-center gap-4 md:gap-6 my-8 md:my-10 opacity-0 animate-fade-in-up animation-delay-500">
-										<span className="text-4xl md:text-5xl emoji-enhanced animate-float">
+									<div className="flex justify-center items-center gap-3 md:gap-4 my-6 md:my-8 opacity-0 animate-fade-in-up animation-delay-500">
+										<span className="text-3xl md:text-4xl emoji-enhanced animate-float">
 											{ANIMALS.roses}
 										</span>
-										<span className="text-5xl md:text-6xl emoji-enhanced animate-heartbeat">
+										<span className="text-4xl md:text-5xl emoji-enhanced animate-heartbeat">
 											{ANIMALS.bigHeart}
 										</span>
-										<span className="text-4xl md:text-5xl emoji-enhanced animate-float animation-delay-200">
+										<span className="text-3xl md:text-4xl emoji-enhanced animate-float animation-delay-200">
 											{ANIMALS.cupid}
 										</span>
 									</div>
 
 									{/* Main Message */}
-									<div className="space-y-4 md:space-y-6 px-6 max-w-3xl mx-auto opacity-0 animate-fade-in-up animation-delay-600">
-										<p className="text-xl md:text-2xl lg:text-3xl text-pink-100 font-light leading-relaxed text-content">
+									<div className="space-y-3 md:space-y-4 px-6 max-w-3xl mx-auto opacity-0 animate-fade-in-up animation-delay-600">
+										<p className="text-lg md:text-xl lg:text-2xl text-pink-100 font-light leading-relaxed text-content">
 											{COPY.opening.title}
 										</p>
-										<p className="text-lg md:text-xl lg:text-2xl text-pink-300 italic leading-relaxed text-content">
+										<p className="text-base md:text-lg lg:text-xl text-pink-300 italic leading-relaxed text-content">
 											{COPY.opening.subtitle}
 										</p>
 									</div>
 
 									{/* Animated Hearts */}
-									<div className="flex justify-center gap-3 md:gap-4 my-6 md:my-8 opacity-0 animate-fade-in-up animation-delay-700">
-										<span className="text-5xl md:text-6xl emoji-enhanced animate-float">
+									<div className="flex justify-center gap-2 md:gap-3 my-5 md:my-6 opacity-0 animate-fade-in-up animation-delay-700">
+										<span className="text-3xl md:text-4xl emoji-enhanced animate-float">
 											{ANIMALS.heart}
 										</span>
-										<span className="text-5xl md:text-6xl emoji-enhanced animate-glow">
+										<span className="text-3xl md:text-4xl emoji-enhanced animate-glow">
 											{ANIMALS.sparkles}
 										</span>
-										<span className="text-5xl md:text-6xl emoji-enhanced animate-float animation-delay-300">
+										<span className="text-3xl md:text-4xl emoji-enhanced animate-float animation-delay-300">
 											{ANIMALS.pinkHeart}
 										</span>
 									</div>
 
 									{/* Continue Button */}
-									<div className="mt-6 md:mt-8 opacity-0 animate-fade-in-up animation-delay-800">
+									<div className="mt-5 md:mt-6 opacity-0 animate-fade-in-up animation-delay-800">
 										<Button
 											onClick={onContinue}
 											variant="modern"
