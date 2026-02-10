@@ -2,9 +2,25 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-function Card({ className, ...props }: React.ComponentProps<"div">) {
+import { playSound } from "@/lib/sounds";
+
+function Card({
+	className,
+	withSound,
+	onClick,
+	...props
+}: React.ComponentProps<"div"> & { withSound?: boolean }) {
+	const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+		if (withSound) {
+			playSound("buttonClick");
+		}
+		if (onClick) {
+			onClick(e);
+		}
+	};
 	return (
 		<div
+			onClick={handleClick}
 			data-slot="card"
 			className={cn(
 				"bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm",

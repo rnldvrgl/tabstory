@@ -96,6 +96,7 @@ export default function MemoryChoiceScreen({
 												}}
 											>
 												<Card
+													withSound
 													onClick={() =>
 														handleChoice(choice.id)
 													}

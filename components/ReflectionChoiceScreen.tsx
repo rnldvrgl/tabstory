@@ -96,6 +96,7 @@ export default function ReflectionChoiceScreen({
 												}}
 											>
 												<Card
+													withSound
 													onClick={() =>
 														handleChoice(choice.id)
 													}
