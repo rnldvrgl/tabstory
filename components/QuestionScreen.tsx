@@ -99,7 +99,7 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 						</div>
 
 						{/* THE QUESTION */}
-						<div className="text-center space-y-6 md:space-y-8 mb-12 md:mb-14 px-4">
+						<div className="text-center space-y-6! md:space-y-8! mb-12! md:mb-14! px-4">
 							{/* Main Title */}
 							<div className="opacity-0 animate-fade-in-up animation-delay-600">
 								<h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-100 leading-tight mx-auto">
@@ -123,7 +123,7 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 						</div>
 
 						{/* Answer Choices */}
-						<div className="flex flex-col gap-5 md:gap-6 mx-auto mb-10">
+						<div className="flex flex-col gap-5 md:gap-6 mx-auto mb-10!">
 							{COPY.question.choices.map((choice, index) => (
 								<div
 									key={choice.id}
@@ -135,7 +135,7 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 									<Button
 										onClick={onAnswer}
 										variant="modern"
-										className="w-full text-xl md:text-2xl lg:text-3xl min-h-22.5 md:min-h-25"
+										className="w-full text-base md:text-lg lg:text-xl min-h-20 md:min-h-20"
 									>
 										{choice.label}
 									</Button>
@@ -144,7 +144,7 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 						</div>
 
 						{/* Bottom Sparkles */}
-						<div className="flex justify-center gap-3 md:gap-4 mt-10 opacity-0 animate-fade-in-up animation-delay-700">
+						<div className="flex justify-center gap-3 md:gap-4 mt-10! opacity-0 animate-fade-in-up animation-delay-700">
 							<span className="text-4xl md:text-5xl emoji-enhanced animate-glow">
 								{ANIMALS.sparkles}
 							</span>
@@ -160,11 +160,6 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 							<span className="text-4xl md:text-5xl emoji-enhanced animate-glow animation-delay-500">
 								{ANIMALS.sparkles}
 							</span>
-						</div>
-
-						{/* Page Label */}
-						<div className="text-center mt-10 md:mt-12 text-pink-400 italic text-xl md:text-2xl font-semibold text-glow opacity-0 animate-fade-in-up animation-delay-800">
-							~ The Most Important Page ~
 						</div>
 					</div>
 				</div>

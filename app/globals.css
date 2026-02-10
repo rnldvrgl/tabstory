@@ -348,7 +348,7 @@ body {
    ================================ */
 
 .page-background {
-	@apply relative bg-gradient-to-br from-[rgb(20,14,23)] via-[rgb(30,20,28)] to-[rgb(20,14,23)];
+	@apply relative bg-linear-to-br from-[rgb(20,14,23)] via-[rgb(30,20,28)] to-[rgb(20,14,23)];
 	background-size: 400% 400%;
 	animation: var(--animate-gradient-flow);
 }
@@ -465,7 +465,7 @@ body {
 }
 
 .choice-card {
-	@apply relative overflow-hidden rounded-2xl border-2 border-pink-500/40 cursor-pointer transition-all duration-300 min-h-[100px] md:min-h-[120px] p-8 px-7 md:p-10 md:px-9;
+	@apply relative overflow-hidden rounded-2xl border-2 border-pink-500/40 cursor-pointer transition-all duration-300 min-h-25 md:min-h-30 p-8 px-7 md:p-10 md:px-9;
 	background: linear-gradient(
 		135deg,
 		rgb(40, 25, 35) 0%,
@@ -476,7 +476,7 @@ body {
 }
 
 .choice-card::before {
-	@apply absolute top-0 -left-full w-full h-full transition-[left] duration-[600ms] ease-linear;
+	@apply absolute top-0 -left-full w-full h-full transition-[left] duration-600 ease-linear;
 	content: "";
 	background: linear-gradient(
 		90deg,
@@ -524,7 +524,7 @@ body {
 }
 
 .meme-container {
-	@apply relative overflow-hidden rounded-2xl border-[3px] border-pink-500/50 mx-auto my-6 md:my-8 max-w-[500px] transition-all duration-300;
+	@apply relative overflow-hidden rounded-2xl border-[3px] border-pink-500/50 mx-auto my-6 md:my-8 max-w-125 transition-all duration-300;
 	background: linear-gradient(
 		135deg,
 		rgb(40, 25, 35) 0%,

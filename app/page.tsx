@@ -8,6 +8,7 @@ import AlmostQuestionScreen from "@/components/AlmostQuestionScreen";
 import QuestionScreen from "@/components/QuestionScreen";
 import SuccessScreen from "@/components/SuccessScreen";
 import { COPY } from "@/lib/constants";
+import { playSound } from "@/lib/sounds";
 
 type Step =
 	| "opening"
@@ -94,6 +95,8 @@ export default function Home() {
 		];
 		const currentIndex = steps.indexOf(currentStep);
 		if (currentIndex < steps.length - 1) {
+			// Play page flip sound on chapter transition
+			playSound("pageFlip");
 			setCurrentStep(steps[currentIndex + 1]);
 		}
 	};
@@ -108,7 +111,6 @@ export default function Home() {
 					key="chapter1"
 					onContinue={nextStep}
 					chapterData={COPY.chapter1}
-					pageNumber={1}
 					onChoice={(choiceId) => handleChoice("chapter1", choiceId)}
 				/>
 			)}
@@ -117,7 +119,6 @@ export default function Home() {
 					key="chapter2"
 					onContinue={nextStep}
 					chapterData={COPY.chapter2}
-					pageNumber={2}
 					onChoice={(choiceId) => handleChoice("chapter2", choiceId)}
 				/>
 			)}
@@ -126,7 +127,6 @@ export default function Home() {
 					key="chapter3"
 					onContinue={nextStep}
 					chapterData={COPY.chapter3}
-					pageNumber={3}
 					onChoice={(choiceId) => handleChoice("chapter3", choiceId)}
 				/>
 			)}
@@ -135,7 +135,6 @@ export default function Home() {
 					key="chapter4"
 					onContinue={nextStep}
 					chapterData={COPY.chapter4}
-					pageNumber={4}
 					onChoice={(choiceId) => handleChoice("chapter4", choiceId)}
 				/>
 			)}
@@ -144,7 +143,6 @@ export default function Home() {
 					key="chapter5"
 					onContinue={nextStep}
 					chapterData={COPY.chapter5}
-					pageNumber={5}
 				/>
 			)}
 			{currentStep === "chapter6" && (
@@ -152,7 +150,6 @@ export default function Home() {
 					key="chapter6"
 					onContinue={nextStep}
 					chapterData={COPY.chapter6}
-					pageNumber={6}
 				/>
 			)}
 			{currentStep === "chapter7" && (
@@ -160,7 +157,6 @@ export default function Home() {
 					key="chapter7"
 					onContinue={nextStep}
 					chapterData={COPY.chapter7}
-					pageNumber={7}
 				/>
 			)}
 			{currentStep === "chapter8" && (
@@ -168,7 +164,6 @@ export default function Home() {
 					key="chapter8"
 					onContinue={nextStep}
 					chapterData={COPY.chapter8}
-					pageNumber={8}
 				/>
 			)}
 			{currentStep === "chapter9" && (
@@ -176,7 +171,6 @@ export default function Home() {
 					key="chapter9"
 					onContinue={nextStep}
 					chapterData={COPY.chapter9}
-					pageNumber={9}
 				/>
 			)}
 			{currentStep === "almost" && (
@@ -184,7 +178,6 @@ export default function Home() {
 					key="almost"
 					onContinue={nextStep}
 					chapterData={COPY.almostQuestion}
-					pageNumber={10}
 				/>
 			)}
 			{currentStep === "question" && (

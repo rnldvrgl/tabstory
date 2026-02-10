@@ -6,13 +6,11 @@ import { ChapterWithText } from "@/lib/constants";
 interface AlmostQuestionScreenProps {
 	onContinue: () => void;
 	chapterData: ChapterWithText;
-	pageNumber: number;
 }
 
 export default function AlmostQuestionScreen({
 	onContinue,
 	chapterData,
-	pageNumber,
 }: AlmostQuestionScreenProps) {
 	return (
 		<div className="viewport-container page-background">
@@ -46,7 +44,7 @@ export default function AlmostQuestionScreen({
 							</h2>
 
 							{/* Decorative hearts */}
-							<div className="flex justify-center gap-4 mt-4">
+							<div className="flex justify-center gap-4 my-4!">
 								<span className="text-3xl emoji-enhanced animate-float">
 									💕
 								</span>
@@ -60,7 +58,7 @@ export default function AlmostQuestionScreen({
 						</div>
 
 						{/* Text Content */}
-						<div className="space-y-6 md:space-y-8 mb-10 md:mb-12">
+						<div className="space-y-2 md:space-y-3! mb-10 md:mb-12">
 							{chapterData.text.map((paragraph, index) => (
 								<div
 									key={index}
@@ -78,7 +76,7 @@ export default function AlmostQuestionScreen({
 
 						{/* Decorative elements */}
 						<div
-							className="flex justify-center gap-4 md:gap-6 mb-10 opacity-0 animate-fade-in-up"
+							className="flex justify-center gap-4 md:gap-6 my-6! opacity-0 animate-fade-in-up"
 							style={{
 								animationDelay: `${
 									500 + chapterData.text.length * 150
@@ -105,7 +103,11 @@ export default function AlmostQuestionScreen({
 								}ms`,
 							}}
 						>
-							<Button onClick={onContinue} variant="modern">
+							<Button
+								onClick={onContinue}
+								variant="modern"
+								size="modern"
+							>
 								Continue
 								<span className="emoji-enhanced">→</span>
 							</Button>

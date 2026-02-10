@@ -9,14 +9,12 @@ import { ChapterWithChoices } from "@/lib/constants";
 interface MemoryChoiceScreenProps {
 	onContinue: () => void;
 	chapterData: ChapterWithChoices;
-	pageNumber: number;
 	onChoice?: (choiceId: string) => void;
 }
 
 export default function MemoryChoiceScreen({
 	onContinue,
 	chapterData,
-	pageNumber,
 	onChoice,
 }: MemoryChoiceScreenProps) {
 	const [selectedChoice, setSelectedChoice] = useState<string | null>(null);
@@ -87,7 +85,7 @@ export default function MemoryChoiceScreen({
 								</div>
 
 								{/* Choices Grid */}
-								<div className="choice-grid opacity-0 animate-fade-in-up animation-delay-500">
+								<div className="opacity-0 animate-fade-in-up animation-delay-500">
 									{chapterData.choices.map(
 										(choice, index) => (
 											<div

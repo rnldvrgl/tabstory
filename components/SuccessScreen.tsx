@@ -106,7 +106,7 @@ export default function SuccessScreen({
 
 				{/* Large glow blobs for celebration */}
 				<div
-					className="absolute w-150 h-150 rounded-full blur-3xl opacity-20 animate-float"
+					className="absolute size-150 rounded-full blur-3xl opacity-20 animate-float"
 					style={{
 						background:
 							"radial-gradient(circle, rgba(236, 72, 153, 0.6) 0%, transparent 70%)",
@@ -150,7 +150,7 @@ export default function SuccessScreen({
 						</div>
 
 						{/* Success Messages */}
-						<div className="text-center space-y-6 md:space-y-8 mb-10 md:mb-12 px-4">
+						<div className="text-center space-y-3 md:space-y-4! mb-10 md:mb-12 px-4">
 							{/* Main Success Title */}
 							<div className="opacity-0 animate-fade-in-up animation-delay-700">
 								<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-100 leading-tight max-w-4xl mx-auto">

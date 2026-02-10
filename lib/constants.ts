@@ -57,20 +57,20 @@ export interface OpeningChapter {
 
 export const COPY = {
 	opening: {
-		title: "13 years ago, sa Grade 7...",
+		title: "13 years ago ...",
 		subtitle:
-			"May tomboy na nag-confess sa akin through Messenger, tapos biglang nag-block. That was you, Tabs. And that's where our 13-year chaos began.",
-		bookTitle: "Ang Ating Kwento: From Grade 7 to Forever",
+			"A girl confessed to me through Messenger, then suddenly blocked me. That was you, Tabs. And that's where our 13-year chaos began.",
+		bookTitle: "TabStory: From Grade 7 to Forever",
 		bookSubtitle:
-			"Teenage love, young parents, at lahat ng kalokohan in between",
-		button: "Simulan na natin",
+			"Teenage love, young parents, and all the craziness in between",
+		button: "Let's begin",
 		meme: "/gifs/kilig-opening.gif",
 	},
 
 	chapter1: {
 		chapter: "Chapter 1",
 		title: "Yung Confess-Then-Block Era",
-		prompt: "Remember nung Grade 7 tayo? You confessed through Messenger then immediately blocked me. Di ko makalimutan yun, Tabs.",
+		prompt: "Remember nung Grade 7 tayo? You confessed through Messenger then immediately blocked me. Never Forgetti, Tabs.",
 		choices: [
 			{
 				id: "nervous",
@@ -93,7 +93,7 @@ export const COPY = {
 
 	chapter2: {
 		chapter: "Chapter 2",
-		title: "Yung Campus Crush na Pumili sa Tomboy",
+		title: "Yung Campus Crush na Pumili sa Tomboyish",
 		prompt: "Naalala mo nung mga galit sa'yo yung ibang girls kasi I chose you? The tomboy who walks like a man pero girly sa heart?",
 		choices: [
 			{

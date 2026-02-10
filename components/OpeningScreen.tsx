@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { COPY, ANIMALS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import { useSound } from "@/lib/hooks/useSound";
+import Tooltip from "@/components/Tooltip";
 
 interface OpeningScreenProps {
 	onContinue: () => void;
@@ -75,19 +76,10 @@ export default function OpeningScreen({ onContinue }: OpeningScreenProps) {
 			{pigIntro && (
 				<div className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden">
 					<div className="relative">
-						{/* Thought Bubble */}
+						{/* Tooltip */}
 						{pigStage === "waiting" && (
-							<div className="absolute -top-24 left-1/2 -translate-x-1/2 animate-bounce pointer-events-none">
-								<div className="relative bg-white text-gray-800 px-6 py-3 rounded-2xl shadow-2xl border-2 border-pink-400">
-									<span className="text-lg md:text-xl font-bold">
-										Click me! 🔊
-									</span>
-									{/* Bubble tail */}
-									<div className="absolute -bottom-3 left-1/2 -translate-x-1/2">
-										<div className="w-0 h-0 border-l-12 border-l-transparent border-r-12 border-r-transparent border-t-12 border-t-white"></div>
-										<div className="absolute -top-3.5 left-1/2 -translate-x-1/2 w-0 h-0 border-l-3.5 border-l-transparent border-r-3.5 border-r-transparent border-t-3.5 border-t-pink-400"></div>
-									</div>
-								</div>
+							<div className="animate-bounce">
+								<Tooltip text="Click me!" icon="🔊" />
 							</div>
 						)}
 
