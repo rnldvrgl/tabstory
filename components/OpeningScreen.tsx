@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { COPY, ANIMALS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -21,7 +21,7 @@ export default function OpeningScreen({ onContinue }: OpeningScreenProps) {
 	const { playSound, playBackgroundMusic } = useSound();
 
 	// Pig enters from bottom and stops at center
-	useState(() => {
+	useEffect(() => {
 		const enterTimer = setTimeout(() => {
 			setPigStage("entering");
 		}, 50);
@@ -34,7 +34,7 @@ export default function OpeningScreen({ onContinue }: OpeningScreenProps) {
 			clearTimeout(enterTimer);
 			clearTimeout(waitTimer);
 		};
-	});
+	}, []);
 
 	const handlePigClick = () => {
 		if (!animationStarted) {
@@ -74,13 +74,11 @@ export default function OpeningScreen({ onContinue }: OpeningScreenProps) {
 		<div className="viewport-container page-background">
 			{/* Pig Meme Intro Animation */}
 			{pigIntro && (
-				<div className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden">
+				<div className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden ">
 					<div className="relative">
 						{/* Tooltip */}
 						{pigStage === "waiting" && (
-							<div className="animate-bounce">
-								<Tooltip text="Click me!" icon="🔊" />
-							</div>
+							<Tooltip text="Click me!" icon="🔊" />
 						)}
 
 						{/* Pig */}
@@ -92,7 +90,7 @@ export default function OpeningScreen({ onContinue }: OpeningScreenProps) {
 								pigStage === "entering" &&
 									"translate-y-0 scale-100 opacity-100",
 								pigStage === "waiting" &&
-									"translate-y-0 scale-100 opacity-100 hover:scale-110 cursor-pointer",
+									"translate-y-0 scale-100 opacity-100 cursor-pointer group-hover:scale-110 transition-transform duration-300",
 								pigStage === "staying" &&
 									"translate-y-0 scale-100 opacity-100",
 								pigStage === "dipping" &&
@@ -133,9 +131,9 @@ export default function OpeningScreen({ onContinue }: OpeningScreenProps) {
 							<div
 								className={cn(
 									"text-[120px] md:text-[180px] lg:text-[240px]",
+									pigStage === "waiting" && "animate-pulse",
 									pigStage === "staying" &&
 										"animate-heartbeat",
-									pigStage === "waiting" && "animate-pulse",
 								)}
 							>
 								🐷

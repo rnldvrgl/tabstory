@@ -10,7 +10,6 @@ export default function Tooltip({ text, icon = "🔊" }: TooltipProps) {
 		<div
 			className="absolute left-1/2 pointer-events-none"
 			style={{
-				top: "-15px",
 				transform: "translateX(-50%)",
 				zIndex: 9999,
 				animation:
