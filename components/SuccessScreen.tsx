@@ -19,62 +19,65 @@ interface SuccessScreenProps {
 }
 
 // Ending messages for each path
+// Ending messages for each path
 const ENDINGS = {
 	romantic: {
-		title: "Chapter ∞: From Grade 7 to Forever",
-		subtitle: "13 years of love, chaos, and building our family...",
+		title: "Chapter ∞: 13 Years Later",
+		subtitle: "At patuloy yung kalokahan natin...",
 		message:
-			"From that Messenger confession in Grade 7 to becoming teenage parents at 17. From fights and struggles to WFH life and future plans. We built this together, Tabs. Our love, our son Prince, our dreams. Honda Civic, better bodies, more coffee dates - lahat yan, kasama mo.",
-		footer: "You were the tomboy who confessed and blocked me. I was the campus crush who chose you despite the hate. 13 years later? Best decision of my life. You, me, and Prince - our forever.",
+			"13 years na pala. From Grade 7 confess-and-block to ngayon. With Nygel. With our WFH chaos. With our chismisan sessions. Hindi perfect, pero ours.",
+		footer: "From Messenger confession to ngayon - wild ride talaga. Uulitin ko pa rin lahat. I love you, Tabs. Continue lang tayo. (Sana matuloy yung kotse at body builds HAHA)",
 		celebration:
-			"Happy Valentine's Day, Tabs. To us - Ronald, Rosa, and Prince. Mahal na mahal kita!",
+			"Happy Valentine's Day, Tabs. To us. Our little family. Our random plans. Our life.",
 	},
 	friendship: {
-		title: "Chapter ∞: Team Ronald & Tabs",
-		subtitle: "Partners in life, parents to Prince, team sa lahat...",
+		title: "Chapter ∞: Team Tabs & Ronald",
+		subtitle: "Professional teammates sa lahat...",
 		message:
-			"We're not just lovers, we're a team. From surviving teenage pregnancy to raising Prince to working from home together. Every challenge, we faced it side by side. Different companies, same bahay. Different schedules, same goals. That's us - always finding a way.",
-		footer: "Coffee, Modern Family, judging people together - these simple moments with you are everything. Waiting for your 1AM clock out? I'd do it every night. Kasi ikaw eh. Kasi tayo.",
+			"13 years ng teamwork. From teenage parents to WFH partners. With Nygel. With our coffee dates. With our judging-people hobby. Solid pa rin.",
+		footer: "From walang alam to slightly may alam na - progress yan. I love you, Tabs. Team tayo palagi. (Kahit walang budget sa next trip HAHA)",
 		celebration:
-			"Happy Valentine's Day, my partner, my teammate, my forever!",
+			"Happy Valentine's Day, teammate! To us. Our strategies. Our wins (and losses). Our journey.",
 	},
 	adventure: {
-		title: "Chapter ∞: Yung Adventure Continues",
-		subtitle: "From teenage chaos to adult dreams...",
+		title: "Chapter ∞: Tuloy ang Adventure",
+		subtitle: "From clueless to less clueless...",
 		message:
-			"Every fight taught us something. Every struggle made us stronger. From that gate-punching incident to now planning our car purchase. From scared 17-year-olds to confident parents. We're still adventuring, Tabs. Still growing. Still chasing dreams - together.",
-		footer: "Honda Civic Type R. Body builds. More memories with Prince. The adventure never ends when you're with the right person. And you're my person, Tabs. Always have been.",
+			"13 years of figuring things out. From teenage chaos to car goals. With Nygel. With our dreams (realistic or hindi). With each other. One step at a time lang.",
+		footer: "From teenage chaos to adult plans - character development yun. I love you, Tabs. Adventure pa rin tayo. (Sana may budget na sa next adventure HAHA)",
 		celebration:
-			"Happy Valentine's Day! Let's keep building our adventure!",
+			"Happy Valentine's Day! To us. Our journey. Our questionable decisions. Our story.",
 	},
 	soulmate: {
-		title: "Chapter ∞: Meant to Be",
-		subtitle: "The tomboy and the campus crush - a love story...",
+		title: "Chapter ∞: Still Going",
+		subtitle: "At hindi pa tapos ang kwento...",
 		message:
-			"They said we wouldn't last. Teenage love doesn't survive, daw. But here we are - 13 years, one son, one life built together. You walking like a man with your asian eyes and volleyball moves. Me watching you every day and choosing you every single time. This isn't luck. This is destiny.",
-		footer: "Prince Nygel is proof that our love is real. Our WFH setup is proof that we work together. Our plans for the future are proof that we're just getting started. I see myself in you. I see our future in your eyes. Ikaw na talaga, Tabs.",
+			"13 years later, eto pa rin tayo. With Nygel. With our plans. With our everyday normal life. Simple lang, pero sapat.",
+		footer: "Kamukha ko daw si Wonwoo pero kasama mo na 13 years - mas okay yan. I love you, Tabs. Ikaw pa rin. (Kahit Jeonghan bias mo HAHA)",
 		celebration:
-			"Happy Valentine's Day, my soulmate. From Grade 7 to forever. Mahal kita, Wonwoo mo.",
+			"Happy Valentine's Day, Tabs. To us. Our reality. Our inside jokes. Tayo pa rin.",
 	},
 };
 
-// Floating emojis configuration
-const FLOATING_EMOJIS = [
-	{ id: 0, emoji: "💝", left: "10%", delay: "0ms", duration: "4s" },
-	{ id: 1, emoji: "❤️", left: "90%", delay: "200ms", duration: "3.5s" },
-	{ id: 2, emoji: "💕", left: "25%", delay: "400ms", duration: "4.2s" },
-	{ id: 3, emoji: "💖", left: "75%", delay: "600ms", duration: "3.8s" },
-	{ id: 4, emoji: "🌹", left: "50%", delay: "100ms", duration: "4.5s" },
-	{ id: 5, emoji: "✨", left: "15%", delay: "300ms", duration: "3.6s" },
-	{ id: 6, emoji: "💗", left: "85%", delay: "500ms", duration: "4.1s" },
-	{ id: 7, emoji: "💘", left: "40%", delay: "700ms", duration: "3.9s" },
-	{ id: 8, emoji: "🎀", left: "65%", delay: "800ms", duration: "4.3s" },
-	{ id: 9, emoji: "✨", left: "30%", delay: "200ms", duration: "3.7s" },
-	{ id: 10, emoji: "💌", left: "80%", delay: "400ms", duration: "4s" },
-	{ id: 11, emoji: "🌹", left: "20%", delay: "600ms", duration: "4.4s" },
-	{ id: 12, emoji: "❤️", left: "55%", delay: "100ms", duration: "4.6s" },
-	{ id: 13, emoji: "💕", left: "70%", delay: "300ms", duration: "3.8s" },
-	{ id: 14, emoji: "💝", left: "35%", delay: "500ms", duration: "4.2s" },
+// Floating emojis configuration - split into left and right sides
+const LEFT_EMOJIS = [
+	{ id: 0, emoji: "💝", left: "5%", delay: "0ms", duration: "4s" },
+	{ id: 1, emoji: "💕", left: "10%", delay: "400ms", duration: "4.2s" },
+	{ id: 2, emoji: "✨", left: "8%", delay: "300ms", duration: "3.6s" },
+	{ id: 3, emoji: "🌹", left: "12%", delay: "600ms", duration: "4.4s" },
+	{ id: 4, emoji: "💗", left: "6%", delay: "200ms", duration: "3.8s" },
+	{ id: 5, emoji: "💘", left: "15%", delay: "500ms", duration: "4.1s" },
+	{ id: 6, emoji: "💌", left: "9%", delay: "700ms", duration: "4.3s" },
+];
+
+const RIGHT_EMOJIS = [
+	{ id: 7, emoji: "❤️", left: "90%", delay: "200ms", duration: "3.5s" },
+	{ id: 8, emoji: "💖", left: "88%", delay: "600ms", duration: "3.8s" },
+	{ id: 9, emoji: "💗", left: "92%", delay: "500ms", duration: "4.1s" },
+	{ id: 10, emoji: "🎀", left: "85%", delay: "800ms", duration: "4.3s" },
+	{ id: 11, emoji: "✨", left: "94%", delay: "400ms", duration: "4s" },
+	{ id: 12, emoji: "🌹", left: "87%", delay: "100ms", duration: "4.5s" },
+	{ id: 13, emoji: "💕", left: "91%", delay: "300ms", duration: "3.7s" },
 ];
 
 export default function SuccessScreen({
@@ -83,9 +86,9 @@ export default function SuccessScreen({
 	const ending = ENDINGS[endingType];
 	return (
 		<div className="viewport-container page-background">
-			{/* Floating Celebration Emojis */}
+			{/* Floating Celebration Emojis - Left Side */}
 			<div className="fixed inset-0 pointer-events-none overflow-hidden">
-				{FLOATING_EMOJIS.map((item) => (
+				{LEFT_EMOJIS.map((item) => (
 					<div
 						key={item.id}
 						className="absolute animate-float opacity-0"
@@ -104,14 +107,34 @@ export default function SuccessScreen({
 					</div>
 				))}
 
-				{/* Large glow blobs for celebration */}
+				{/* Floating Celebration Emojis - Right Side */}
+				{RIGHT_EMOJIS.map((item) => (
+					<div
+						key={item.id}
+						className="absolute animate-float opacity-0"
+						style={{
+							left: item.left,
+							animationDelay: item.delay,
+							animationDuration: item.duration,
+							animationIterationCount: "infinite",
+							top: "110%",
+							animation: `floatUp ${item.duration} linear ${item.delay} infinite`,
+						}}
+					>
+						<span className="text-4xl emoji-enhanced">
+							{item.emoji}
+						</span>
+					</div>
+				))}
+
+				{/* Large glow blobs for celebration - positioned away from center */}
 				<div
 					className="absolute size-150 rounded-full blur-3xl opacity-20 animate-float"
 					style={{
 						background:
 							"radial-gradient(circle, rgba(236, 72, 153, 0.6) 0%, transparent 70%)",
-						top: "20%",
-						left: "20%",
+						top: "10%",
+						left: "5%",
 					}}
 				/>
 				<div
@@ -119,14 +142,14 @@ export default function SuccessScreen({
 					style={{
 						background:
 							"radial-gradient(circle, rgba(249, 168, 212, 0.7) 0%, transparent 70%)",
-						bottom: "15%",
-						right: "25%",
+						bottom: "10%",
+						right: "5%",
 					}}
 				/>
 			</div>
 
-			{/* Success Book Page */}
-			<div className="w-full max-w-4xl mx-auto z-10">
+			{/* Success Book Page - Centered with padding to avoid emojis */}
+			<div className="w-full max-w-4xl mx-auto z-10 px-4 md:px-8 lg:px-16">
 				<div className="book-page animate-page-flip soft-glow">
 					<div className="book-content">
 						{/* Chapter Title */}
@@ -150,7 +173,7 @@ export default function SuccessScreen({
 						</div>
 
 						{/* Success Messages */}
-						<div className="text-center space-y-3 md:space-y-4! mb-10 md:mb-12 px-4">
+						<div className="text-center space-y-3 md:space-y-4 mb-10 md:mb-12 px-4">
 							{/* Main Success Title */}
 							<div className="opacity-0 animate-fade-in-up animation-delay-700">
 								<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-100 leading-tight max-w-4xl mx-auto">
@@ -176,7 +199,7 @@ export default function SuccessScreen({
 						{/* Celebration Meme */}
 						{COPY.success.finalMeme && (
 							<div className="opacity-0 animate-fade-in-up animation-delay-800">
-								<div className="meme-container max-w-md mx-auto">
+								<div className="meme-container max-w-md mx-auto mb-8">
 									<Image
 										height={400}
 										width={400}

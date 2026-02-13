@@ -42,6 +42,9 @@ export default function AlmostQuestionScreen({
 							<h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-pink-200 leading-tight px-4">
 								{chapterData.title}
 							</h2>
+							<h3 className="text-lg md:text-xl text-pink-300 mt-4! italic">
+								{chapterData.prompt}
+							</h3>
 
 							{/* Decorative hearts */}
 							<div className="flex justify-center gap-4 my-4!">

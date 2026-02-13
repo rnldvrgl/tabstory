@@ -62,7 +62,7 @@ export default function MemoryChoiceScreen({
 							</h2>
 
 							{/* Decorative flowers */}
-							<div className="flex justify-center gap-4 mt-4">
+							<div className="flex justify-center gap-4 my-4!">
 								<span className="text-3xl emoji-enhanced animate-float">
 									🌸
 								</span>
@@ -85,7 +85,7 @@ export default function MemoryChoiceScreen({
 								</div>
 
 								{/* Choices Grid */}
-								<div className="opacity-0 animate-fade-in-up animation-delay-500">
+								<div className="opacity-0 animate-fade-in-up animation-delay-500 grid gap-4 md:gap-6 my-8!">
 									{chapterData.choices.map(
 										(choice, index) => (
 											<div
@@ -100,8 +100,11 @@ export default function MemoryChoiceScreen({
 													onClick={() =>
 														handleChoice(choice.id)
 													}
-													className="choice-card smooth-transition hover:scale-[1.02] active:scale-[0.99] cursor-pointer"
+													className="choice-card smooth-transition hover:scale-[1.02] active:scale-[0.99] cursor-pointer flex items-center"
 												>
+													<div className="text-5xl md:text-6xl emoji-enhanced animate-float">
+														{choice.emoji}
+													</div>
 													<p className="text-lg md:text-xl text-pink-100 font-semibold text-center">
 														{choice.label}
 													</p>

@@ -10,7 +10,6 @@ interface QuestionScreenProps {
 export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 	return (
 		<div className="viewport-container page-background">
-			{/* Floating decorations - more prominent for THE question */}
 			<div className="fixed inset-0 pointer-events-none overflow-hidden">
 				<div className="absolute top-[10%] left-[8%] text-5xl opacity-30 animate-float">
 					💕
@@ -52,7 +51,6 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 				/>
 			</div>
 
-			{/* Book Page Container - Special styling for THE question */}
 			<div className="w-full max-w-5xl mx-auto z-10">
 				<div className="book-page animate-page-flip soft-glow">
 					<div className="book-content">
@@ -86,7 +84,7 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 						</div>
 
 						{/* Romantic Hearts Display */}
-						<div className="flex justify-center gap-4 md:gap-6 mb-10 md:mb-12 opacity-0 animate-fade-in-up animation-delay-500">
+						<div className="flex justify-center gap-4 md:gap-6 my-8! md:mb-12 opacity-0 animate-fade-in-up animation-delay-500">
 							<span className="text-6xl md:text-7xl lg:text-8xl emoji-enhanced animate-float">
 								{ANIMALS.roses}
 							</span>
@@ -109,7 +107,7 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
 
 							{/* The Actual Question */}
 							<div className="opacity-0 animate-fade-in-up animation-delay-700">
-								<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-pink-300 chapter-heading text-glow leading-tight  mx-auto">
+								<h2 className="text-5xl md:text-5xl lg:text-6xl font-bold text-pink-300 chapter-heading text-glow leading-tight  mx-auto">
 									{COPY.question.question}
 								</h2>
 							</div>
