@@ -52,7 +52,7 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
       </div>
 
       <div className="w-full max-w-5xl mx-auto z-10">
-        <div className="book-page animate-page-flip soft-glow">
+        <div className="book-page animate-chapter-reveal soft-glow">
           <div className="book-content">
             {/* Floating corner hearts */}
             <div className="absolute -top-6 -left-6 md:-top-8 md:-left-8 text-5xl md:text-6xl opacity-0 animate-fade-in-up animation-delay-300">
@@ -119,7 +119,7 @@ export default function QuestionScreen({ onAnswer }: QuestionScreenProps) {
             </div>
 
             {/* Answer Choices */}
-            <div className="flex flex-col md:flex-row gap-5 md:gap-6 mx-auto mb-10!">
+            <div className="grid md:grid-cols-3 gap-5 md:gap-6 mx-auto mb-10!">
               {COPY.question.choices.map((choice, index) => (
                 <div
                   key={choice.id}

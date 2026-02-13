@@ -48,7 +48,7 @@ export default function MemoryChoiceScreen({
 
       {/* Book Page Container */}
       <div className="w-full max-w-5xl mx-auto z-10">
-        <div className="book-page animate-page-flip">
+        <div className="book-page animate-chapter-reveal">
           <div className="book-content">
             {/* Chapter Header */}
             <div className="text-center mb-6 md:mb-8 opacity-0 animate-fade-in-up animation-delay-300">

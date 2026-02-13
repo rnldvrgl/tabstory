@@ -307,7 +307,7 @@ export default function SuccessScreen({
 
       {/* Success Book Page - Centered with padding to avoid emojis */}
       <div className="w-full max-w-3xl mx-auto z-10 px-6 md:px-8 lg:px-12 py-4">
-        <div className="book-page animate-page-flip soft-glow">
+        <div className="book-page animate-chapter-reveal soft-glow">
           <div className="book-content py-6 md:py-8">
             {/* Chapter Title */}
             <div className="text-center mb-6! md:mb-8! opacity-0 animate-fade-in-up animation-delay-500">

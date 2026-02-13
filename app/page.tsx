@@ -44,26 +44,50 @@ export default function Home() {
   const getEndingType = (): EndingType => {
     const choices = Object.values(userChoices)
 
-    // Count patterns in choices
-    const romanticChoices = ["fate", "deeper", "safe", "grown"].filter((c) =>
-      choices.includes(c),
-    ).length
-
-    const adventureChoices = ["luck", "adventures", "stronger", "peace"].filter(
-      (c) => choices.includes(c),
-    ).length
-
-    const deepConnectionChoices = [
-      "inside-jokes",
-      "random-moments",
-      "belonging",
-      "deeper",
+    // Romantic ending - emotional, connection-focused choices
+    const romanticChoices = [
+      "bold", // Chapter 1: Took the risk
+      "chosen", // Chapter 2: Chosen one perspective
+      "worth-it", // Chapter 3: Everything was worth it
+      "team", // Chapter 4: We became a team
     ].filter((c) => choices.includes(c)).length
 
-    // Determine ending based on dominant theme
-    if (deepConnectionChoices >= 3) return "soulmate"
+    // Adventure ending - growth and journey-focused choices
+    const adventureChoices = [
+      "nervous", // Chapter 1: Nervous but brave
+      "tomboy-pride", // Chapter 2: Embracing uniqueness
+      "growth", // Chapter 3: Personal growth
+      "proud", // Chapter 4: Proud of journey
+    ].filter((c) => choices.includes(c)).length
+
+    // Soulmate ending - deep understanding and meant-to-be
+    const soulmateChoices = [
+      "bold", // Chapter 1: Took the risk for love
+      "chosen", // Chapter 2: Chosen soulmate
+      "worth-it", // Chapter 3: Worth every struggle
+      "scared", // Chapter 4: Scared but together
+    ].filter((c) => choices.includes(c)).length
+
+    // Friendship/Team ending - practical partnership
+    const friendshipChoices = [
+      "funny", // Chapter 1: Humor in chaos
+      "haters", // Chapter 2: Overcoming together
+      "crazy", // Chapter 3: Intense but learning
+      "team", // Chapter 4: Teamwork focus
+    ].filter((c) => choices.includes(c)).length
+
+    // Determine ending based on dominant theme (at least 2 matching choices)
+    if (soulmateChoices >= 2 && choices.includes("chosen")) return "soulmate"
     if (romanticChoices >= 2) return "romantic"
     if (adventureChoices >= 2) return "adventure"
+    if (friendshipChoices >= 2) return "friendship"
+
+    // Default based on any single strong indicator
+    if (choices.includes("chosen")) return "soulmate"
+    if (choices.includes("worth-it")) return "romantic"
+    if (choices.includes("growth") || choices.includes("proud"))
+      return "adventure"
+
     return "friendship"
   }
 
@@ -94,8 +118,17 @@ export default function Home() {
     if (currentIndex < steps.length - 1) {
       // Play page flip sound on chapter transition
       playSound("pageFlip")
-      setCurrentStep(steps[currentIndex + 1])
+
+      // Small delay for book flip animation
+      setTimeout(() => {
+        setCurrentStep(steps[currentIndex + 1])
+      }, 150)
     }
+  }
+
+  const handleRestart = () => {
+    setCurrentStep("opening")
+    setUserChoices({})
   }
 
   return (
@@ -191,6 +224,7 @@ export default function Home() {
           key="success"
           endingType={getEndingType()}
           userChoices={userChoices}
+          onRestart={handleRestart}
         />
       )}
     </div>
