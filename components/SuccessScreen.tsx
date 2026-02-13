@@ -34,7 +34,7 @@ const ENDINGS = {
       "Happy Valentine's Day, Tabs. To us. Our little family. Our random plans. Our life.",
   },
   friendship: {
-    title: "Chapter ∞: Team Tabs & Ronald",
+    title: "Chapter ∞: Team Rosa & Ronald",
     subtitle: "Professional teammates sa lahat...",
     message:
       "13 years ng teamwork. From teenage parents to WFH partners. With Nygel. With our coffee dates. With our judging-people hobby. Solid pa rin.",
